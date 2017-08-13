@@ -6,8 +6,8 @@ class NewsArticle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256), unique=True, nullable=False)
     content = db.Column(db.String(256), unique=True, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("newsarticles", lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
+    user = db.relationship("AdminUser", backref=db.backref("newsarticles", lazy=True))
 
     def __init__(self, id, title, content, user_id, user):
         self.id = id
@@ -27,8 +27,8 @@ class Event(db.Model):
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     link = db.Column(db.String(256))
     remarks = db.Column(db.String(256))
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("events", lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
+    user = db.relationship("AdminUser", backref=db.backref("events", lazy=True))
 
     def __init__(self, id, name, location, date, link, remarks, user_id, user):
         self.id = id
@@ -49,8 +49,8 @@ class AppText(db.Model):
     keyword = db.Column(db.String(256), unique=True, nullable=False)
     site = db.Column(db.String(256), nullable=False)
     text = db.Column(db.String(256), unique=True, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("apptexts", lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
+    user = db.relationship("AdminUser", backref=db.backref("apptexts", lazy=True))
 
     def __init__(self, id, keyword, text, site, user_id, user):
         self.id = id
@@ -67,8 +67,8 @@ class AppText(db.Model):
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     embeded_link = db.Column(db.String(256), unique=True, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("videos", lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
+    user = db.relationship("AdminUser", backref=db.backref("videos", lazy=True))
 
     def __init__(self, id, embeded_link, user_id, user):
         self.id = id

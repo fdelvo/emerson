@@ -5,7 +5,7 @@ from emerson import app, db
 
 
 app.config.from_object('config.DevelopmentConfig')
-
+from emerson.mod_admin import models
 migrate = Migrate(app, db)
 manager = Manager(app)
 

@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Anton|Open+Sans:300,400,700|Reem+Kufi');
+
+/* Default link styling */
+a:link {
+    color: #0271fb;
+}
+
+a:visited {
+    color: #bd02fb;
+}
+
+a:hover, a:focus {
+    color: #000;
+}
+
+a:active {
+    color: #fb0e02;
+}
+
+/* ---------------------------------------------------------
+   Author's styles
+   ---------------------------------------------------------*/
+
+body {
+    /*font-family: 'Reem Kufi', sans-serif;*/
+    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f8fa;
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    grid-template-areas: "nav content";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.admin-nav {
+    border-bottom: 0.05rem solid #c9c9c9;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 1.5rem;
+    grid-area: nav;
+}
+
+.admin-nav ul {
+    color: #212121;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav a {
+    color: #212121;
+    text-decoration: none;
+}
+
+.admin-nav a:hover {
+    color: #fb0e02;
+}
+
+.red-background {
+    background-color: #EE4E36;
+}
+
+.blue-background {
+    background-color: #095A78;
+}
+
+.purple-background {
+    background-color: #652E83;
+}
+
+.pink-background {
+    background-color: #E2687F;
+}
+
+.tab-control {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.tab-control ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.tab-control ul li {
+    display: inline;
+    list-style: none;
+    padding: 2rem;
+}
+
+.tab-control ul li a {
+    color: #212121;
+}
+
+#spotify, #youtube {
+    display: block;
+}
+
+.index-picture {
+    height: auto;
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+}
+
+header {
+    padding: 2rem 2rem 2rem 2rem;
+    color: #212121 !important;
+}
+
+main {
+    grid-area: content;
+    background-color: #FFFFFF;
+    border-left: 0.05rem solid #c9c9c9;
+    border-right: 0.05rem solid #c9c9c9;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "content";
+}
+
+main header {
+    grid-area: header;
+}
+
+main section {
+    grid-area: content;
+    padding: 1rem;
+    display: grid;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.music {
+    grid-template-columns: auto;
+    grid-template-areas: "youtube" "spotify" "tab_control";
+}
+
+.music #youtube {
+    grid-area: youtube;
+    justify-self: center;
+}
+
+.music #spotify {
+    grid-area: spotify;
+    justify-self: center;
+}
+
+.music .tab-control {
+    grid-area: tab_control;
+    justify-self: center;
+}
+
+.about {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "about-header about-header" "about-description about-description" "about-band-picture about-band-members";
+}
+
+.about-header {
+    grid-area: about-header;
+}
+
+.about-band-description {
+    grid-area: about-description;
+}
+
+.about-band-picture {
+    grid-area: about-band-picture;
+}
+
+.about-band-members {
+    grid-area: about-band-members;
+    padding: 1rem;
+}
+
+.news {
+    grid-template-rows: auto;
+    grid-template-areas: "news-header";
+}
+
+.news-header {
+    grid-area: news-header;
+}
+
+.news-article {
+    display: grid;
+    grid-template-rows: 1fr 7fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "news-article-thumbnail news-article-header" "news-article-thumbnail news-article-content" "news-article-thumbnail news-article-footer";
+}
+
+.news-article-content {
+    grid-area: news-article-content;
+    padding: 1rem;
+}
+
+.news-article-header {
+    grid-area: news-article-header;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.news-article-footer {
+    grid-area: news-article-footer;
+    padding: 1rem;
+}
+
+.news-article-thumbnail {
+    grid-area: news-article-thumbnail;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.index {
+    background-color: transparent;
+}
+
+article {
+    padding: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.article-thumbnail {
+    width: 30%;
+}
+
+.article-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.article-body {
+    width: 70%;
+    padding-left: 1rem;
+}
+
+article .article-body header {
+    padding: 0;
+}
+
+article .article-body header span {
+    font-weight: 300;
+}
+
+.news-content {
+    padding-top: 1rem;
+    height: 6rem;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.article-content {
+    padding: 1rem;
+}
+
+.two-column {
+    display: inline;
+    width: 50%;
+}
+
+article img {
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.whole-article {
+    height: auto;
+}
+
+.contact-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-ul li {
+    padding: 1rem;
+}
+
+dl {
+    width: 100%;
+    padding: 0;
+    margin: 0
+}
+
+dt {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0
+}
+
+dd {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------
+   Print styles
+   ---------------------------------------------------------*/
+@media print {
+    * {
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background: transparent !important;
+    }
+
+    html {
+        background-color: #fff;
+    }
+
+    /* Hide navigation */
+    nav {
+        display: none;
+    }
+
+    /* Show link destinations in brackets after the link text */
+    a[href]:after {
+        content: " (" attr(href) ") ";
+    }
+
+    a[href] {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #06c;
+        border: none;
+    }
+
+    /* Don't show link destinations for JavaScript or internal links */
+    a[href^="javascript:"]:after, a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Show abbr title value in brackets after the text */
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    figure {
+        margin-bottom: 1em;
+        overflow: hidden;
+    }
+
+    figure img {
+        border: 1px solid #000;
+    }
+}

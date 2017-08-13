@@ -1,8 +1,0 @@
-MANIFEST.in
-emerson/__init__.py
-emerson/emerson.py
-emerson.egg-info/PKG-INFO
-emerson.egg-info/SOURCES.txt
-emerson.egg-info/dependency_links.txt
-emerson.egg-info/requires.txt
-emerson.egg-info/top_level.txt

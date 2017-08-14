@@ -1,5 +1,6 @@
-from flask_wtf import Form
-from wtforms import StringField, SubmitField, validators, DateField, DateTimeField
+from flask_wtf import Form, widgets
+from wtforms import StringField, SubmitField, validators
+from wtforms_components import DateTimeField
 from wtforms.widgets import TextArea
 
 
@@ -13,7 +14,7 @@ class AppTextForm(Form):
 
 class NewsArticleForm(Form):
     title = StringField('Title', [validators.DataRequired("Please enter a text.")])
-    content = StringField('Content', [validators.DataRequired("Please enter a text.")])
+    content = StringField('Content', [validators.DataRequired("Please enter a text.")], widget=TextArea())
     submit = SubmitField("Create news article")
 
     def __init__(self, *args, **kwargs):
@@ -23,7 +24,7 @@ class NewsArticleForm(Form):
 class EventForm(Form):
     name = StringField('Name', [validators.DataRequired("Please enter a text.")])
     location = StringField('Location', [validators.DataRequired("Please enter a text.")])
-    date = DateTimeField('Date', [validators.DataRequired("Please enter a date.")], format='%d.%m.%Y@%H:%M:%S',)
+    date = DateTimeField('Date', [validators.DataRequired("Please enter a date.")], format='%d.%m.%Y@%H:%M:%S')
     link = StringField('Link')
     remarks = StringField('Remarks', widget=TextArea())
     submit = SubmitField("Create event")

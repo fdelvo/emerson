@@ -17,8 +17,7 @@
                         <tr>
                             <td>{{ news_article.title }}</td>
                             <td>{{ news_article.date }}</td>
-                            <td><a href="/admin/news_article_edit/{{ news_article.id }}">Edit</a></td>
-                            <td><a href="/admin/news_article_delete/{{ news_article.id }}">Delete</a></td>
+                            <td><a href="/admin/edit_news_article/{{ news_article.id }}">Edit</a> | <a href="/admin/delete_news_article/{{ news_article.id }}">Delete</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

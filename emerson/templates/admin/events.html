@@ -23,8 +23,7 @@
                             <td>{{ event.date }}</td>
                             <td>{{ event.link }}</td>
                             <td>{{ event.remarks }}</td>
-                            <td><a href="/admin/edit_event/{{ event.id }}">Edit</a></td>
-                            <td><a href="/admin/delete_event/{{ event.id }}">Delete</a></td>
+                            <td><a href="/admin/edit_event/{{ event.id }}">Edit</a>  | <a href="/admin/delete_event/{{ event.id }}">Delete</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -10,13 +10,11 @@ class NewsArticle(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("newsarticles", lazy=True))
 
-    def __init__(self, id, title, content, date, user_id, user):
-        self.id = id
+    def __init__(self, title, content, date, user_id):
         self.title = title
         self.content = content
         self.date = date
         self.user_id = user_id
-        self.user = user
 
     def __repr__(self):
         return '<NewsArticle %r>' % self.title
@@ -32,12 +30,13 @@ class Event(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("events", lazy=True))
 
-    def __init__(self, name, location, date, link, remarks):
+    def __init__(self, name, location, date, link, remarks, user_id):
         self.name = name
         self.location = location
         self.date = date
         self.link = link
         self.remarks = remarks
+        self.user_id = user_id
 
     def __repr__(self):
         return '<Event %r>' % self.name

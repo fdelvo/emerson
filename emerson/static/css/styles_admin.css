@@ -58,6 +58,10 @@ table thead tr th:last-child {
     border-right: none;
 }
 
+table thead tr:first-child th {
+    border-bottom: none;
+}
+
 table tbody tr td {
     border-bottom: 0.05rem solid#c9c9c9;
     border-left: 0.05rem solid#c9c9c9;

@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, SubmitField, validators, DateField
+from wtforms import StringField, SubmitField, validators, DateField, DateTimeField
 from wtforms.widgets import TextArea
 
 
@@ -23,9 +23,9 @@ class NewsArticleForm(Form):
 class EventForm(Form):
     name = StringField('Name', [validators.DataRequired("Please enter a text.")])
     location = StringField('Location', [validators.DataRequired("Please enter a text.")])
-    date = DateField('Date', [validators.DataRequired("Please enter a date.")])
+    date = DateTimeField('Date', [validators.DataRequired("Please enter a date.")], format='%d.%m.%Y@%H:%M:%S',)
     link = StringField('Link')
-    remarks = StringField('Remarks')
+    remarks = StringField('Remarks', widget=TextArea())
     submit = SubmitField("Create event")
 
     def __init__(self, *args, **kwargs):
@@ -33,7 +33,7 @@ class EventForm(Form):
 
 
 class VideoForm(Form):
-    embeded_link = StringField('Embeded Link', [validators.DataRequired("Please enter a text.")])
+    embedded_link = StringField('Embedded Link', [validators.DataRequired("Please enter a text.")])
     submit = SubmitField("Create video")
 
     def __init__(self, *args, **kwargs):

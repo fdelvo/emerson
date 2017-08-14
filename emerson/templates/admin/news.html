@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "admin/layout_admin.html" %}
+{% block main %}
+        <header><h2>News articles</h2></header>
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="/admin/new_news_article">Create news article</a></th>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for news_article in news_articles %}
+                        <tr>
+                            <td>{{ news_article.title }}</td>
+                            <td>{{ news_article.date }}</td>
+                            <td><a href="/admin/news_article_edit/{{ news_article.id }}">Edit</a></td>
+                            <td><a href="/admin/news_article_delete/{{ news_article.id }}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block main %}
+        <header><h2>Edit video</h2></header>
+        <form action="{{ url_for('administration.edit_video', id=video.id) }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.embedded_link.label }}
+            {{ form.embedded_link }}
+
+            {{ form.submit }}
+        </form>
+{% endblock %}

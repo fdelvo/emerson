@@ -40,6 +40,7 @@
 <main>
     <header>
         <h1>Admin</h1>
+        <a href="" onclick="window.history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a> | <a href="/auth/logout">Log out</a>
     </header>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -52,7 +53,6 @@
     {% endwith %}
     <section>
         {% block main %} {% endblock %}
-        <a href="" onclick="window.history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a>
     </section>
 </main>
 

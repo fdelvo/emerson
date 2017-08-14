@@ -26,14 +26,7 @@ def load_user(user_id):
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.test'))
-
-
-@mod_auth.route("test")
-@login_required
-def test():
-    print("Access")
-    return render_template('auth/test.html')
+    return redirect(url_for('auth.login'))
 
 
 # Set the route and accepted methods
@@ -52,7 +45,7 @@ def signup():
 
             session['email'] = new_user.email
 
-            return "[1] Create a new user [2] sign in the user [3] redirect to the user's profile"
+            return redirect(url_for('auth.login'))
 
     elif request.method == 'GET':
         return render_template('auth/signup.html', form=form)
@@ -65,14 +58,14 @@ def login():
         if form.validate():
             user = AdminUser.query.filter_by(email=form.email.data).first()
             login_user(user)
-            flash('logged in')
+            flash('Welcome to your administration', 'success')
             next = request.args.get('next')
             # is_safe_url should check if the url is safe for redirects.
             # See http://flask.pocoo.org/snippets/62/ for an example.
             if not is_safe_url(next):
                 return app.abort(400)
 
-            return redirect(next or url_for('auth.signup'))
+            return redirect(next or url_for('administration.index'))
 
         flash_errors(form)
         return render_template('auth/signin.html', form=form)

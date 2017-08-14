@@ -1,8 +1,32 @@
 {% extends "admin/layout_admin.html" %}
 {% block main %}
-    <main class="index" role="main">
-
-        <div>events</div>
-
-    </main>
+        <header><h2>Events</h2></header>
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="/admin/new_event">Create event</a></th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Link</th>
+                        <th>Remarks</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.name }}</td>
+                            <td>{{ event.location }}</td>
+                            <td>{{ event.date }}</td>
+                            <td>{{ event.link }}</td>
+                            <td>{{ event.remarks }}</td>
+                            <td><a href="/admin/edit_event/{{ event.id }}">Edit</a></td>
+                            <td><a href="/admin/delete_event/{{ event.id }}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 {% endblock %}

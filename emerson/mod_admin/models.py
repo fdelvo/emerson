@@ -6,13 +6,15 @@ class NewsArticle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256), unique=True, nullable=False)
     content = db.Column(db.String(256), unique=True, nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("newsarticles", lazy=True))
 
-    def __init__(self, id, title, content, user_id, user):
+    def __init__(self, id, title, content, date, user_id, user):
         self.id = id
         self.title = title
         self.content = content
+        self.date = date
         self.user_id = user_id
         self.user = user
 
@@ -30,15 +32,12 @@ class Event(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("events", lazy=True))
 
-    def __init__(self, id, name, location, date, link, remarks, user_id, user):
-        self.id = id
+    def __init__(self, name, location, date, link, remarks):
         self.name = name
         self.location = location
         self.date = date
         self.link = link
         self.remarks = remarks
-        self.user_id = user_id
-        self.user = user
 
     def __repr__(self):
         return '<Event %r>' % self.name
@@ -66,15 +65,15 @@ class AppText(db.Model):
 
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    embeded_link = db.Column(db.String(256), unique=True, nullable=False)
+    embedded_link = db.Column(db.String(256), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("videos", lazy=True))
 
-    def __init__(self, id, embeded_link, user_id, user):
+    def __init__(self, id, embedded_link, user_id, user):
         self.id = id
-        self.embeded_link = embeded_link
+        self.embedded_link = embedded_link
         self.user_id = user_id
         self.user = user
 
     def __repr__(self):
-        return '<Video %r>' % self.embeded_link
+        return '<Video %r>' % self.embedded_link

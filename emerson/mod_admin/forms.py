@@ -1,19 +1,14 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, SubmitField, validators, DateField
+from wtforms import StringField, SubmitField, validators, DateField
+from wtforms.widgets import TextArea
 
 
 class AppTextForm(Form):
-    text = StringField('Text', [validators.DataRequired("Please enter a text.")])
+    text = StringField('Text', [validators.DataRequired("Please enter a text.")], widget=TextArea())
     submit = SubmitField("Save text")
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
-
-    def validate(self):
-        if not Form.validate(self):
-            return False
-        else:
-            return True
 
 
 class NewsArticleForm(Form):
@@ -23,12 +18,6 @@ class NewsArticleForm(Form):
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
-
-    def validate(self):
-        if not Form.validate(self):
-            return False
-        else:
-            return True
 
 
 class EventForm(Form):
@@ -42,12 +31,6 @@ class EventForm(Form):
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
 
-    def validate(self):
-        if not Form.validate(self):
-            return False
-        else:
-            return True
-
 
 class VideoForm(Form):
     embeded_link = StringField('Embeded Link', [validators.DataRequired("Please enter a text.")])
@@ -55,10 +38,3 @@ class VideoForm(Form):
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
-
-    def validate(self):
-        if not Form.validate(self):
-            return False
-        else:
-            return True
-

@@ -1,33 +1,24 @@
 {% extends "auth/layout_auth.html" %}
 
 {% block main %}
-    <h2>Sign up</h2>
+    <section>
+        <header>
+            <h2>Sign up</h2>
+        </header>
+        <form action="{{ url_for('auth.signup') }}" method=post>
+            {{ form.hidden_tag() }}
 
-    {% for message in form.username.errors %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
+            {{ form.username.label }}
+            {{ form.username }}
 
-    {% for message in form.email.errors %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
+            {{ form.email.label }}
+            {{ form.email }}
 
-    {% for message in form.password.errors %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
+            {{ form.password.label }}
+            {{ form.password }}
 
-    <form action="{{ url_for('auth.signup') }}" method=post>
-        {{ form.hidden_tag() }}
-
-        {{ form.username.label }}
-        {{ form.username }}
-
-        {{ form.email.label }}
-        {{ form.email }}
-
-        {{ form.password.label }}
-        {{ form.password }}
-
-        {{ form.submit }}
-    </form>
+            {{ form.submit }}
+        </form>
+    </section>
 
 {% endblock %}

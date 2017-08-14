@@ -1,5 +1,8 @@
+import flask_login
 from flask import Flask, render_template
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
+import flask.globals as flask_global
 
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
@@ -19,3 +22,4 @@ from emerson.mod_admin.controllers import mod_admin as admin_module
 app.register_blueprint(main_module)
 app.register_blueprint(auth_module)
 app.register_blueprint(admin_module)
+

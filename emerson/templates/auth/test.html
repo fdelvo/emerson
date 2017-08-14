@@ -2,7 +2,10 @@
 {% block main %}
     <main class="index" role="main">
 
-        <div>test</div>
-
+        {% if current_user.is_authenticated %}
+  Hi {{ current_user.name }}!
+            {% else %}
+            Not logged in.
+{% endif %}
     </main>
 {% endblock %}

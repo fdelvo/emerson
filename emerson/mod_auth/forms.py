@@ -1,3 +1,4 @@
+from flask import flash
 from flask_wtf import Form
 from wtforms import StringField, PasswordField, SubmitField, validators
 
@@ -47,5 +48,6 @@ class SigninForm(Form):
         if user and user.check_password(self.password.data):
             return True
         else:
-            self.email.errors.append("Invalid e-mail or password")
+            self.errors.append("Invalid e-mail or password")
             return False
+

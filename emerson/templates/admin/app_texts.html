@@ -1,8 +1,22 @@
 {% extends "admin/layout_admin.html" %}
 {% block main %}
-    <main class="index" role="main">
-
-        <div>apptexts</div>
-
-    </main>
+        <header><h2>App Texts</h2></header>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Site</th>
+                        <th>Keyword</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app_text in app_texts %}
+                        <tr>
+                            <td>{{ app_text.site }}</td>
+                            <td>{{ app_text.keyword }}</td>
+                            <td><a href="/admin/app_text_edit/{{ app_text.id }}">Edit</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 {% endblock %}

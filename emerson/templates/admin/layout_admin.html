@@ -29,16 +29,33 @@
 <!-- ARIA: the landmark role "banner" is set as it is the prime heading or internal title of the page -->
 <nav class="admin-nav" role="navigation">
     <ul>
-        <li><a href="/">Admin</a></li>
-        <li><a href="/app_texts">App Texts</a></li>
-        <li><a href="/news">News</a></li>
-        <li><a href="/videos">Videos</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/spotify">Spotify</a></li>
+        <li><a href="/admin/index">Admin</a></li>
+        <li><a href="/admin/app_texts">App Texts</a></li>
+        <li><a href="/admin/news">News</a></li>
+        <li><a href="/admin/videos">Videos</a></li>
+        <li><a href="/admin/events">Events</a></li>
+        <li><a href="/admin/spotify">Spotify</a></li>
     </ul>
 </nav>
+<main>
+    <header>
+        <h1>Admin</h1>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <section>
+        {% block main %} {% endblock %}
+        <a href="" onclick="window.history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a>
+    </section>
+</main>
 
-{% block main %} {% endblock %}
 
 </body>
 </html>

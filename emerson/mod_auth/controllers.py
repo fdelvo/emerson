@@ -1,15 +1,13 @@
 # Import flask dependencies
+from urllib.parse import urlparse, urljoin
+
+from emerson import db, app
+from emerson.mod_auth.models import AdminUser
 from flask import Blueprint, request, render_template, \
     flash, session, redirect, url_for
-# Import password / encryption helper tools
-from flask_login import login_user, LoginManager, logout_user
-from flask_user import login_required
+from flask_login import login_user, LoginManager, logout_user, login_required
 from werkzeug.security import generate_password_hash
 
-# Import the database object from the main app module
-from emerson import db, app
-# Import module models (i.e. User)
-from emerson.mod_auth.models import AdminUser
 from .forms import SigninForm, SignupForm
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
@@ -28,7 +26,14 @@ def load_user(user_id):
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.signup'))
+    return redirect(url_for('auth.test'))
+
+
+@mod_auth.route("test")
+@login_required
+def test():
+    print("Access")
+    return render_template('auth/test.html')
 
 
 # Set the route and accepted methods
@@ -38,6 +43,7 @@ def signup():
 
     if request.method == 'POST':
         if form.validate() == False:
+            flash_errors(form)
             return render_template('auth/signup.html', form=form)
         else:
             new_user = AdminUser(form.username.data, form.email.data, generate_password_hash(form.password.data), True)
@@ -60,7 +66,30 @@ def login():
             user = AdminUser.query.filter_by(email=form.email.data).first()
             login_user(user)
             flash('logged in')
-            return render_template('auth/signin.html', form=form)
+            next = request.args.get('next')
+            # is_safe_url should check if the url is safe for redirects.
+            # See http://flask.pocoo.org/snippets/62/ for an example.
+            if not is_safe_url(next):
+                return app.abort(400)
+
+            return redirect(next or url_for('auth.signup'))
+
+        flash_errors(form)
         return render_template('auth/signin.html', form=form)
 
     return render_template('auth/signin.html', form=form)
+
+
+def is_safe_url(target):
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and \
+           ref_url.netloc == test_url.netloc
+
+
+def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error), "fail")

@@ -34,8 +34,18 @@ class EventForm(Form):
 
 
 class VideoForm(Form):
+    description = StringField('Description', [validators.DataRequired("Please enter a text.")])
     embedded_link = StringField('Embedded Link', [validators.DataRequired("Please enter a text.")])
     submit = SubmitField("Create video")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+
+class SpotifyForm(Form):
+    description = StringField('Description', [validators.DataRequired("Please enter a text.")])
+    embedded_link = StringField('Embedded Link', [validators.DataRequired("Please enter a text.")])
+    submit = SubmitField("Create spotify link")
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)

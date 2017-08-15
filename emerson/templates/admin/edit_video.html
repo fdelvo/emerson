@@ -5,6 +5,9 @@
         <form action="{{ url_for('administration.edit_video', id=video.id) }}" method=post>
             {{ form.hidden_tag() }}
 
+            {{ form.description.label }}
+            {{ form.description }}
+
             {{ form.embedded_link.label }}
             {{ form.embedded_link }}
 

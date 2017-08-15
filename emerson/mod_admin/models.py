@@ -4,8 +4,8 @@ from datetime import datetime
 
 class NewsArticle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(256), unique=True, nullable=False)
-    content = db.Column(db.String(256), unique=True, nullable=False)
+    title = db.Column(db.String(), unique=True, nullable=False)
+    content = db.Column(db.String(), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("newsarticles", lazy=True))
@@ -22,11 +22,11 @@ class NewsArticle(db.Model):
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), unique=True, nullable=False)
-    location = db.Column(db.String(256), unique=True, nullable=False)
+    name = db.Column(db.String(), nullable=False)
+    location = db.Column(db.String(), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    link = db.Column(db.String(256))
-    remarks = db.Column(db.String(256))
+    link = db.Column(db.String())
+    remarks = db.Column(db.String())
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("events", lazy=True))
 
@@ -44,9 +44,9 @@ class Event(db.Model):
 
 class AppText(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    keyword = db.Column(db.String(256), unique=True, nullable=False)
-    site = db.Column(db.String(256), nullable=False)
-    text = db.Column(db.String(256), unique=True, nullable=False)
+    keyword = db.Column(db.String(), unique=True, nullable=False)
+    site = db.Column(db.String(), nullable=False)
+    text = db.Column(db.String(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("apptexts", lazy=True))
 
@@ -64,15 +64,31 @@ class AppText(db.Model):
 
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    embedded_link = db.Column(db.String(256), unique=True, nullable=False)
+    description = db.Column(db.String(), unique=True, nullable=False)
+    embedded_link = db.Column(db.String(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
     user = db.relationship("AdminUser", backref=db.backref("videos", lazy=True))
 
-    def __init__(self, id, embedded_link, user_id, user):
-        self.id = id
+    def __init__(self, embedded_link, description, user_id):
         self.embedded_link = embedded_link
+        self.description = description
         self.user_id = user_id
-        self.user = user
 
     def __repr__(self):
         return '<Video %r>' % self.embedded_link
+
+
+class Spotify(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(), unique=True, nullable=False)
+    embedded_link = db.Column(db.String(), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("admin_user.id"), nullable=False)
+    user = db.relationship("AdminUser", backref=db.backref("spotifys", lazy=True))
+
+    def __init__(self, embedded_link, description, user_id):
+        self.description = description
+        self.embedded_link = embedded_link
+        self.user_id = user_id
+
+    def __repr__(self):
+        return '<Spotify %r>' % self.embedded_link

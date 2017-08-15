@@ -3,8 +3,8 @@ import datetime
 from flask_login import current_user
 
 from emerson import db
-from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm
-from emerson.mod_admin.models import AppText, Event, NewsArticle
+from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm, VideoForm, SpotifyForm
+from emerson.mod_admin.models import AppText, Event, NewsArticle, Video, Spotify
 from flask import Blueprint, render_template
 from flask import flash
 from flask import redirect
@@ -57,7 +57,8 @@ def new_event():
     form = EventForm()
     if request.method == 'POST':
         if form.validate():
-            new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data, current_user.id)
+            new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data,
+                              current_user.id)
             db.session.add(new_event)
             db.session.commit()
             flash(f'Event "{new_event.name}" created.')
@@ -102,7 +103,7 @@ def new_news_article():
             new_news_article = NewsArticle(form.title.data, form.content.data, datetime.datetime.now(), current_user.id)
             db.session.add(new_news_article)
             db.session.commit()
-            flash(f'News article "{new_news_article.title}" created.')
+            flash(f'News article "{new_news_article.title}" created.', 'success')
             return redirect(url_for('administration.news'))
         flash_errors(form)
         return render_template('admin/new_news_article.html', form=form)
@@ -128,13 +129,79 @@ def edit_news_article(id):
 @mod_admin.route('videos')
 @login_required
 def videos():
-    return render_template('admin/videos.html')
+    videos = Video.query.all()
+    return render_template('admin/videos.html', videos=videos)
 
 
-@mod_admin.route('/admin/spotify')
+@mod_admin.route('new_video', methods=['GET', 'POST'])
+@login_required
+def new_video():
+    form = VideoForm()
+    if request.method == 'POST':
+        if form.validate():
+            new_video = Video(form.embedded_link.data, form.description.data, current_user.id)
+            db.session.add(new_video)
+            db.session.commit()
+            flash(f'Video "{new_video.embedded_link}" created.')
+            return redirect(url_for('administration.videos'))
+        flash_errors(form)
+        return render_template('admin/new_video.html', form=form)
+    return render_template('admin/new_video.html', form=form)
+
+
+@mod_admin.route('edit_video/<id>', methods=['GET', 'POST'])
+@login_required
+def edit_video(id):
+    video = Video.query.filter_by(id=id).first()
+    form = VideoForm(obj=video)
+    form.populate_obj(video)
+    if request.method == 'POST' and form.validate():
+        video.description = form.description.data
+        video.embedded_link = form.embedded_link.data
+        db.session.commit()
+        flash(f'Video "{video.embedded_link}" saved.', 'success')
+        return redirect(url_for('administration.videos'))
+
+    return render_template('admin/edit_video.html', form=form, video=video)
+
+
+@mod_admin.route('spotify')
 @login_required
 def spotify():
-    return render_template('admin/spotify.html')
+    spotifys = Spotify.query.all()
+    return render_template('admin/spotify.html', spotifys=spotifys)
+
+
+@mod_admin.route('new_spotify', methods=['GET', 'POST'])
+@login_required
+def new_spotify():
+    form = SpotifyForm()
+    if request.method == 'POST':
+        if form.validate():
+            new_spotify = Spotify(form.embedded_link.data, form.description.data, current_user.id)
+            db.session.add(new_spotify)
+            db.session.commit()
+            flash(f'Spotify link "{new_spotify.embedded_link}" created.')
+            return redirect(url_for('administration.spotify'))
+        flash_errors(form)
+        return render_template('admin/new_spotify.html', form=form)
+    return render_template('admin/new_spotify.html', form=form)
+
+
+@mod_admin.route('edit_spotify/<id>', methods=['GET', 'POST'])
+@login_required
+def edit_spotify(id):
+    spotify = Spotify.query.filter_by(id=id).first()
+    form = SpotifyForm(obj=spotify)
+    form.populate_obj(spotify)
+    if request.method == 'POST' and form.validate():
+        spotify.description = form.description.data
+        spotify.embedded_link = form.embedded_link.data
+        db.session.commit()
+        flash(f'Spotify link "{spotify.embedded_link}" saved.', 'success')
+        return redirect(url_for('administration.spotify'))
+
+    return render_template('admin/edit_spotify.html', form=form, spotify=spotify)
 
 
 def flash_errors(form):

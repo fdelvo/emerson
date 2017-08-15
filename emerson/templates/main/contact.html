@@ -1,26 +1,41 @@
 {% extends "main/layout.html" %}
 {% block main %}
     <main role="main">
+        <header>
+            <h1>CONTACT</h1>
+        </header>
         <section>
-
-            <header>
-                <h1>CONTACT</h1>
-            </header>
 
             <article>
 
                 <div class="article-content">
                     <ul class="contact-ul">
                         <li><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i> <a target="_blank"
-                                                                                                href="https://www.facebook.com/pg/emersonprimemusic">facebook</a>
+                                                                                                href="
+
+                                                                                                        {% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}">
+                            {% for app_text in app_texts %}{% if "facebook" == app_text.keyword %}
+                                {{ app_text.text | safe }}{% endif %}{% endfor %}</a>
                         </li>
                         <li><i class="fa fa-instagram fa-2x" aria-hidden="true"></i> <a target="_blank"
-                                                                                        href="https://www.instagram.com/emersonprimemusic">instagram</a>
+                                                                                        href="
+
+                                                                                                {% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}">
+                            {% for app_text in app_texts %}{% if "instagram" == app_text.keyword %}
+                                {{ app_text.text | safe }}{% endif %}{% endfor %}</a>
                         </li>
                         <li><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> <a
-                                href="mailto:emersonprimemusic@gmail.com">emersonprimemusic@gmail.com</a></li>
+                                href="
+
+                                        {% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}">
+                            {% for app_text in app_texts %}{% if "email" == app_text.keyword %}
+                                {{ app_text.text | safe }}{% endif %}{% endfor %}</a></li>
                         <li><i class="fa fa-youtube fa-2x" aria-hidden="true"></i> <a target="_blank"
-                                                                                      href="https://www.youtube.com/channel/UCpBpJV_bO_-_apzwH-LixTg">youtube</a>
+                                                                                      href="
+
+                                                                                              {% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}">
+                            {% for app_text in app_texts %}{% if "youtube" == app_text.keyword %}
+                                {{ app_text.text | safe }}{% endif %}{% endfor %}</a>
                         </li>
                     </ul>
                 </div>

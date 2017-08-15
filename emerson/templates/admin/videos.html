@@ -4,9 +4,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th><a href="/admin/new_event">Create video</a></th>
+                        <th><a href="/admin/new_video">Create video</a></th>
                     </tr>
                     <tr>
+                        <th>Description</th>
                         <th>Embedded link</th>
                         <th>Actions</th>
                     </tr>
@@ -14,9 +15,9 @@
                 <tbody>
                     {% for video in videos %}
                         <tr>
-                            <td>{{ video.embeded_link }}</td>
-                            <td><a href="/admin/edit_video/{{ video.id }}">Edit</a></td>
-                            <td><a href="/admin/delete_video/{{ video.id }}">Delete</a></td>
+                            <td>{{ video.description }}</td>
+                            <td>{{ video.embedded_link }}</td>
+                            <td><a href="/admin/edit_video/{{ video.id }}">Edit</a> | <a href="/admin/delete_video/{{ video.id }}">Delete</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "admin/layout_admin.html" %}
+{% block main %}
+        <header><h2>Spotify links</h2></header>
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="/admin/new_spotify">Create spotify link</a></th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>Embedded link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for spotify in spotifys %}
+                        <tr>
+                            <td>{{ spotify.description }}</td>
+                            <td>{{ spotify.embedded_link }}</td>
+                            <td><a href="/admin/edit_spotify/{{ spotify.id }}">Edit</a> | <a href="/admin/delete_spotify/{{ spotify.id }}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}

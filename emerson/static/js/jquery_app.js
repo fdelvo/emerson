@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    $(".index-picture").bind("mouseenter", function () {
-        $(this).unbind("mouseenter");
+    $(".index-picture").mouseenter(function () {
         if ($(this).attr("src") === "/static/images/Emerson.jpg") {
              $("#index-picture-1").animate({
                     opacity: 0,
@@ -9,9 +8,7 @@ $(document).ready(function () {
                 $("#index-picture-2").animate({
                     opacity: 1,
                     width: "40%"
-                }, {duration: 800, queue: false, easing: "linear"}, function () {
-                    $(".index-picture").bind("mouseenter");
-                });
+                }, {duration: 800, queue: false, easing: "linear"});
         } else {
              $("#index-picture-2").animate({
                     opacity: 0,
@@ -20,9 +17,7 @@ $(document).ready(function () {
                 $("#index-picture-1").animate({
                     opacity: 1,
                     width: "40%"
-                }, {duration: 800, queue: false, easing: "linear"}, function () {
-                    $(".index-picture").bind("mouseenter");
-                });
+                }, {duration: 800, queue: false, easing: "linear"});
         }
     });
     $("#youtube-container").hide();

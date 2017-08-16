@@ -415,6 +415,12 @@ form input[type=submit] {
     border: none;
     background-color: #E2687F;
     color: #f5f8fa;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+form input[type=submit]:hover {
+    background-color: #7598b8;
 }
 
 /* ---------------------------------------------------------

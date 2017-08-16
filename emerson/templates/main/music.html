@@ -6,21 +6,22 @@
         </header>
         <section class="music">
 
-            <iframe id="spotify" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A4pzi5zRKzT5XQbTFPCz7W2"
-                    frameborder="0" allowtransparency="true"></iframe>
-
-            <iframe id="youtube" src="https://www.youtube.com/embed/UG1w71SvdAM" frameborder="0"
-                    allowfullscreen></iframe>
-
             <nav class="tab-control">
-                <ul>
-                    <li><a href="" ng-click="youtube = true; spotify = true"><i class="fa fa-spotify fa-2x"
-                                                                                aria-hidden="true"></i></a></li>
-                    <li><a href="" ng-click="youtube = false; spotify = false"><i class="fa fa-youtube fa-2x"
-                                                                                  aria-hidden="true"></i></a></li>
-                </ul>
+                <i id="spotify" class="fa fa-spotify fa-2x" aria-hidden="true"></i>
+                <i id="youtube" class="fa fa-youtube fa-2x" aria-hidden="true"></i>
             </nav>
-
+            <div class="embedded-links">
+                <div id="youtube-container">
+                    {% for video in videos %}
+                        {{ video.embedded_link | safe }}
+                    {% endfor %}
+                </div>
+                <div id="spotify-container">
+                    {% for spotify in spotifys %}
+                        {{ spotify.embedded_link | safe }}
+                    {% endfor %}
+                </div>
+            </div>
         </section>
     </main>
 {% endblock %}

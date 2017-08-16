@@ -61,7 +61,7 @@ def new_event():
                               current_user.id)
             db.session.add(new_event)
             db.session.commit()
-            flash(f'Event "{new_event.name}" created.')
+            flash(f'Event "{new_event.name}" created.', 'success')
             return redirect(url_for('administration.events'))
         flash_errors(form)
         return render_template('admin/new_event.html', form=form)

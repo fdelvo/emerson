@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Anton|Open+Sans:300,400,700|Reem+Kufi');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Anton|Open+Sans:300,400,700|Reem+Kufi|PT+Mono');
 
 /* Default link styling */
 a:link {
@@ -30,7 +30,7 @@ a:active {
 body {
     /*font-family: 'Reem Kufi', sans-serif;*/
     /*font-family: 'Amatic SC', cursive;*/
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Mono', monospace;
     background-color: #f2eae8;
     margin: 0;
     width: 100%;
@@ -41,14 +41,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Mono', monospace;
     margin: 0;
 }
 
 .main-nav {
     border-bottom: 0.05rem solid #c9c9c9;
     text-align: center;
-    font-family: 'Reem Kufi', sans-serif;
+    font-family: 'PT Mono', monospace;
     font-size: 1.5rem;
     grid-area: nav;
     display: grid;
@@ -109,28 +109,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tab-control {
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "spotify youtube";
 }
 
-.tab-control ul {
-    padding: 0;
-    margin: 0;
-    text-align: center;
+.tab-control i {
+    color: #7598b8;
+    justify-self: center;
 }
 
-.tab-control ul li {
-    display: inline;
-    list-style: none;
-    padding: 2rem;
+.tab-control i:hover {
+    color: #ca519e;
+    cursor: pointer;
 }
 
-.tab-control ul li a {
-    color: #212121;
-}
+#spotify { grid-area: spotify }
 
-#spotify, #youtube {
-    display: block;
-}
+#youtube { grid-area: youtube }
 
 .index-picture {
     height: auto;
@@ -176,18 +174,31 @@ img {
 }
 
 .music {
-    grid-template-columns: auto;
-    grid-template-areas: "youtube" "spotify" "tab_control";
+    grid-auto-rows: auto;
+    grid-template-areas: "tab_control" "embedded_links";
 }
 
-.music #youtube {
-    grid-area: youtube;
-    justify-self: center;
+.music .embedded-links {
+    grid-area: embedded_links;
+    align-self: center;
+    text-align: center;
 }
 
-.music #spotify {
-    grid-area: spotify;
+.event {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "title info";
+}
+
+.event header {
+    grid-area: title;
+    padding: 0;
     justify-self: center;
+    align-self: center;
+}
+
+.event-info {
+    grid-area: info;
 }
 
 .music .tab-control {
@@ -203,10 +214,12 @@ img {
 
 .about-header {
     grid-area: about-header;
+    padding: 1rem;
 }
 
 .about-band-description {
     grid-area: about-description;
+    padding: 1rem;
 }
 
 .about-band-picture {

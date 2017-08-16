@@ -7,4 +7,13 @@ $(document).ready(function () {
             $(this).attr("src", "/static/images/Emerson.jpg");
         }
     });
+    $("#youtube-container").hide();
+    $("#spotify").click(function () {
+        $("#spotify-container").show();
+        $("#youtube-container").hide();
+    })
+    $("#youtube").click(function () {
+        $("#spotify-container").hide();
+        $("#youtube-container").show();
+    })
 });

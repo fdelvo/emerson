@@ -48,6 +48,6 @@ class SigninForm(Form):
         if user and user.check_password(self.password.data):
             return True
         else:
-            self.errors.append("Invalid e-mail or password")
+            self.email.errors.append("Invalid e-mail or password")
             return False
 

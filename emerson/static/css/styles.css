@@ -143,6 +143,15 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
 
+#index-picture-1 {
+    opacity: 1;
+}
+
+#index-picture-2 {
+    opacity: 0;
+    width: 0;
+}
+
 header {
     padding: 2rem 2rem 2rem 2rem;
     color: #212121 !important;

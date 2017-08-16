@@ -1,10 +1,28 @@
 $(document).ready(function () {
-    $(".index-picture").mouseenter(function () {
-        var img = $(this).attr("src");
-        if (img === "/static/images/Emerson.jpg") {
-            $(this).attr("src", "/static/images/Emerson2.jpg");
+    $(".index-picture").bind("mouseenter", function () {
+        $(this).unbind("mouseenter");
+        if ($(this).attr("src") === "/static/images/Emerson.jpg") {
+             $("#index-picture-1").animate({
+                    opacity: 0,
+                    width: 0
+                }, {duration: 800, queue: false, easing: "linear"});
+                $("#index-picture-2").animate({
+                    opacity: 1,
+                    width: "40%"
+                }, {duration: 800, queue: false, easing: "linear"}, function () {
+                    $(".index-picture").bind("mouseenter");
+                });
         } else {
-            $(this).attr("src", "/static/images/Emerson.jpg");
+             $("#index-picture-2").animate({
+                    opacity: 0,
+                    width: 0
+                }, {duration: 800, queue: false, easing: "linear"});
+                $("#index-picture-1").animate({
+                    opacity: 1,
+                    width: "40%"
+                }, {duration: 800, queue: false, easing: "linear"}, function () {
+                    $(".index-picture").bind("mouseenter");
+                });
         }
     });
     $("#youtube-container").hide();

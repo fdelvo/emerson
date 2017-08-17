@@ -1,30 +1,37 @@
 $(document).ready(function () {
-    $(".index-picture").mouseenter(function () {
+    $("#revert").hide();
+    $(".index-picture").mouseover(function () {
         if ($(this).attr("src") === "/static/images/Emerson.jpg") {
-             $("#index-picture-1").animate({
-                    opacity: 0,
-                    width: 0
-                }, {duration: 800, queue: false, easing: "linear"});
-                $("#index-picture-2").animate({
-                    opacity: 1,
-                    width: "40%"
-                }, {duration: 800, queue: false, easing: "linear"});
-        } else {
-             $("#index-picture-2").animate({
-                    opacity: 0,
-                    width: 0
-                }, {duration: 800, queue: false, easing: "linear"});
-                $("#index-picture-1").animate({
-                    opacity: 1,
-                    width: "40%"
-                }, {duration: 800, queue: false, easing: "linear"});
+            $(this).animate({
+                opacity: 0
+            }, 700, "linear", function () {
+                $(this).attr("src", "/static/images/Emerson2.jpg");
+            }).delay(500).animate({
+                opacity: 1
+            }, 700, "linear", function () {
+                $("#revert").show();
+            });
         }
     });
+
+    $("#revert").click(function () {
+        $(".index-picture").animate({
+            opacity: 0
+        }, 700, "linear", function () {
+            $(this).attr("src", "/static/images/Emerson.jpg");
+        }).delay(500).animate({
+            opacity: 1
+        }, 700, "linear", function () {
+            $("#revert").hide();
+        });
+    });
+
     $("#youtube-container").hide();
     $("#spotify").click(function () {
         $("#spotify-container").show();
         $("#youtube-container").hide();
-    })
+    });
+
     $("#youtube").click(function () {
         $("#spotify-container").hide();
         $("#youtube-container").show();

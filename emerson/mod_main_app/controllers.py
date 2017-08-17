@@ -5,6 +5,7 @@ from sqlalchemy import desc
 from emerson.mod_admin.models import AppText, NewsArticle, Video, Spotify, Event
 
 mod_main_app = Blueprint('main', __name__, url_prefix='/', template_folder='/templates/main/')
+page_size = 5
 
 
 @mod_main_app.route('')
@@ -19,10 +20,16 @@ def about():
     return render_template('main/about.html', app_texts=app_texts)
 
 
-@mod_main_app.route('news')
-def news():
-    news = NewsArticle.query.order_by(desc(NewsArticle.date)).limit(5)
+@mod_main_app.route('news', defaults={'page':1})
+@mod_main_app.route('news/page/<int:page>')
+def news(page):
+    count = NewsArticle.query.count()
+    news = NewsArticle.query.order_by(desc(NewsArticle.date)).paginate(page, page_size)
+    print(news)
     return render_template('main/news.html', news=news)
+
+
+@mod_main_app.route
 
 
 @mod_main_app.route('music')

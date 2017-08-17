@@ -130,26 +130,28 @@ h1, h2, h3, h4, h5, h6 {
 
 #youtube { grid-area: youtube }
 
+.index {
+    background-color: #f2eae8;
+    height: 100vh;
+    padding: 0;
+}
+
 .index-picture {
-    height: auto;
-    width: 40%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    display: block;
+    justify-self: center;
+    align-self: center;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+    width: 60%;
 }
 
-#index-picture-1 {
-    opacity: 1;
+#revert {
+    position: absolute;
+    bottom: 10%;
+    cursor: pointer;
+    left: 50%;
 }
 
-#index-picture-2 {
-    opacity: 0;
-    width: 0;
+#revert:hover {
+    color: #ca519e;
 }
 
 header {
@@ -255,6 +257,7 @@ img {
     grid-area: news-article-content;
     padding: 1rem;
     overflow: hidden;
+    align-self: center;
 }
 
 .news-article-content a {
@@ -283,10 +286,6 @@ img {
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
-}
-
-.index {
-    background-color: transparent;
 }
 
 article {
@@ -350,6 +349,10 @@ article img {
 }
 
 .contact-ul li {
+    padding: 1rem;
+}
+
+.pagination {
     padding: 1rem;
 }
 

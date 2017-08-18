@@ -1,7 +1,8 @@
 import datetime
 
 from flask_login import current_user
-from sqlalchemy import desc
+from sqlalchemy import desc, exc
+from sqlalchemy.exc import IntegrityError
 
 from emerson import db
 from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm, VideoForm, SpotifyForm
@@ -71,13 +72,22 @@ def new_event():
         flash_errors(form)
         return render_template('admin/new_event.html', form=form)
     if request.method == 'POST' and request.json:
-        new_event = Event(request.json['name'], request.json['location'], request.json['date'], request.json['link'],
-                          request.json['remarks'],
-                          current_user.id)
-        db.session.add(new_event)
-        db.session.commit()
-        flash(f'Events successfully imported from Facebook.', 'success')
-        return redirect(url_for('administration.events'))
+        print(request.json)
+        imported_events = 0
+        failed_to_import_events = 0
+        for event in request.json['eventsToImport']:
+            new_event = Event(event['name'], event['location'], event['date'],
+                              event['link'],
+                              event['remarks'],
+                              current_user.id)
+            db.session.add(new_event)
+            try:
+                db.session.commit()
+                imported_events+=1
+            except exc.IntegrityError as error:
+                failed_to_import_events += 1
+                print("oops")
+                continue
     return render_template('admin/new_event.html', form=form)
 
 

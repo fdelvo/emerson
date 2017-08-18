@@ -52,17 +52,16 @@ function importFacebookEvents() {
                     };
                     eventsToImport.push(event);
                 }
-                for (let i of eventsToImport) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/admin/new_event",
-                        data: JSON.stringify(i),
-                        contentType: 'application/json;charset=UTF-8',
-                        success: function (result) {
-                            console.log(result);
-                        }
-                    });
-                }
+                let stringifyConversion = {eventsToImport};
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/new_event",
+                    data: JSON.stringify(stringifyConversion),
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (result) {
+
+                    }
+                });
             }
         }
     );

@@ -21,6 +21,10 @@ a:active {
    Author's styles
    ---------------------------------------------------------*/
 
+.facebook-import {
+    padding: 1rem;
+}
+
 body {
     /*font-family: 'Reem Kufi', sans-serif;*/
     /*font-family: 'Amatic SC', cursive;*/
@@ -41,6 +45,8 @@ h1, h2, h3, h4, h5, h6 {
 table {
     text-align: left;
     border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
 }
 
 table thead tr th {
@@ -67,6 +73,7 @@ table tbody tr td {
     border-left: 0.05rem solid#c9c9c9;
     border-right: 0.05rem solid#c9c9c9;
     padding: 1rem;
+    word-wrap: break-word;
 }
 
 table tbody tr td:first-child {
@@ -79,6 +86,10 @@ table tbody tr td:last-child {
 
 table tbody tr:last-child td {
     border-bottom: none;
+}
+
+table tfoot th {
+    font-weight: normal;
 }
 
 .admin-nav {
@@ -192,6 +203,7 @@ main {
     display: grid;
     grid-template-rows: auto;
     grid-template-areas: "header" "notifications" "content";
+
 }
 
 main .flashes {

@@ -145,9 +145,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #revert {
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     cursor: pointer;
-    left: 50%;
+    left: 5%;
 }
 
 #revert:hover {

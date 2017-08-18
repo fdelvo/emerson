@@ -22,7 +22,7 @@ class NewsArticle(db.Model):
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), nullable=False)
+    name = db.Column(db.String(), unique=True, nullable=False)
     location = db.Column(db.String(), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     link = db.Column(db.String())

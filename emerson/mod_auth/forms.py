@@ -19,7 +19,9 @@ class SignupForm(Form):
         if not Form.validate(self):
             return False
 
-        if self.email.data != "florian.delvo@googlemail.com":
+        whitelist = ['florian.delvo@googlemail.com', 'test@test.de']
+
+        if self.email.data not in whitelist:
             self.email.errors.append("That email address is not valid.")
             return False
 

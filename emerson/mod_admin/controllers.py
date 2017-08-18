@@ -1,6 +1,7 @@
 import datetime
 
 from flask_login import current_user
+from sqlalchemy import desc
 
 from emerson import db
 from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm, VideoForm, SpotifyForm
@@ -13,6 +14,7 @@ from flask import url_for
 from flask.ext.login import login_required
 
 mod_admin = Blueprint('administration', __name__, url_prefix='/admin/', template_folder='/templates/admin/')
+PAGE_SIZE = 50
 
 
 @mod_admin.route('')
@@ -37,17 +39,19 @@ def edit_app_text(id):
     return render_template('admin/edit_app_text.html', form=form, app_text=app_text)
 
 
-@mod_admin.route('app_texts')
+@mod_admin.route('app_texts', defaults={'page': 1})
+@mod_admin.route('app_texts/page/<int:page>')
 @login_required
-def app_texts():
-    app_texts = AppText.query.all()
+def app_texts(page):
+    app_texts = AppText.query.order_by(desc(AppText.id)).paginate(page, PAGE_SIZE)
     return render_template('admin/app_texts.html', app_texts=app_texts)
 
 
-@mod_admin.route('events')
+@mod_admin.route('events', defaults={'page': 1})
+@mod_admin.route('events/page/<int:page>')
 @login_required
-def events():
-    events = Event.query.all()
+def events(page):
+    events = Event.query.order_by(desc(Event.date)).paginate(page, PAGE_SIZE)
     return render_template('admin/events.html', events=events)
 
 
@@ -55,7 +59,8 @@ def events():
 @login_required
 def new_event():
     form = EventForm()
-    if request.method == 'POST':
+    if request.method == 'POST' and not request.json:
+        print(request.data)
         if form.validate():
             new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data,
                               current_user.id)
@@ -65,6 +70,14 @@ def new_event():
             return redirect(url_for('administration.events'))
         flash_errors(form)
         return render_template('admin/new_event.html', form=form)
+    if request.method == 'POST' and request.json:
+        new_event = Event(request.json['name'], request.json['location'], request.json['date'], request.json['link'],
+                          request.json['remarks'],
+                          current_user.id)
+        db.session.add(new_event)
+        db.session.commit()
+        flash(f'Events successfully imported from Facebook.', 'success')
+        return redirect(url_for('administration.events'))
     return render_template('admin/new_event.html', form=form)
 
 
@@ -87,10 +100,21 @@ def edit_event(id):
     return render_template('admin/edit_event.html', form=form, event=event)
 
 
-@mod_admin.route('news')
+@mod_admin.route('delete_event/<id>', methods=['GET'])
 @login_required
-def news():
-    news_articles = NewsArticle.query.all()
+def delete_event(id):
+    event = Event.query.filter_by(id=id).first()
+    db.session.delete(event)
+    db.session.commit()
+    flash(f'Event "{event.name}" deleted.', 'success')
+    return redirect(url_for('administration.events'))
+
+
+@mod_admin.route('news', defaults={'page': 1})
+@mod_admin.route('news/page/<int:page>')
+@login_required
+def news(page):
+    news_articles = NewsArticle.query.order_by(desc(NewsArticle.date)).paginate(page, PAGE_SIZE)
     return render_template('admin/news.html', news_articles=news_articles)
 
 
@@ -126,10 +150,21 @@ def edit_news_article(id):
     return render_template('admin/edit_news_article.html', form=form, news_article=news_article)
 
 
-@mod_admin.route('videos')
+@mod_admin.route('delete_news_article/<id>', methods=['GET'])
 @login_required
-def videos():
-    videos = Video.query.all()
+def delete_news_article(id):
+    news_article = NewsArticle.query.filter_by(id=id).first()
+    db.session.delete(news_article)
+    db.session.commit()
+    flash(f'News article "{news_article.title}" deleted.', 'success')
+    return redirect(url_for('administration.news'))
+
+
+@mod_admin.route('videos', defaults={'page': 1})
+@mod_admin.route('videos/page/<int:page>')
+@login_required
+def videos(page):
+    videos = Video.query.order_by(desc(Video.id)).paginate(page, PAGE_SIZE)
     return render_template('admin/videos.html', videos=videos)
 
 
@@ -149,6 +184,16 @@ def new_video():
     return render_template('admin/new_video.html', form=form)
 
 
+@mod_admin.route('delete_video/<id>', methods=['GET'])
+@login_required
+def delete_video(id):
+    video = Video.query.filter_by(id=id).first()
+    db.session.delete(video)
+    db.session.commit()
+    flash(f'Video "{video.description}" deleted.', 'success')
+    return redirect(url_for('administration.videos'))
+
+
 @mod_admin.route('edit_video/<id>', methods=['GET', 'POST'])
 @login_required
 def edit_video(id):
@@ -165,10 +210,11 @@ def edit_video(id):
     return render_template('admin/edit_video.html', form=form, video=video)
 
 
-@mod_admin.route('spotify')
+@mod_admin.route('spotify', defaults={'page': 1})
+@mod_admin.route('spotify/page/<int:page>')
 @login_required
-def spotify():
-    spotifys = Spotify.query.all()
+def spotify(page):
+    spotifys = Spotify.query.order_by(desc(Spotify.id)).paginate(page, PAGE_SIZE)
     return render_template('admin/spotify.html', spotifys=spotifys)
 
 
@@ -202,6 +248,16 @@ def edit_spotify(id):
         return redirect(url_for('administration.spotify'))
 
     return render_template('admin/edit_spotify.html', form=form, spotify=spotify)
+
+
+@mod_admin.route('delete_spotify/<id>', methods=['GET'])
+@login_required
+def delete_spotify(id):
+    spotify = Spotify.query.filter_by(id=id).first()
+    db.session.delete(spotify)
+    db.session.commit()
+    flash(f'Spotify link "{spotify.description}" deleted.', 'success')
+    return redirect(url_for('administration.spotify'))
 
 
 def flash_errors(form):

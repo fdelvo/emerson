@@ -5,7 +5,7 @@
             <h1>EVENTS</h1>
         </header>
         <section class="events">
-            {% for event in events %}
+            {% for event in events.items %}
                 <div class="event">
                     <header><h3>{{ event.name }}</h3></header>
                     <div class="event-info">
@@ -18,6 +18,20 @@
                     </div>
                 </div>
             {% endfor %}
+            <div class=pagination>
+                <span>Pages: </span>
+                {%- for page in events.iter_pages() %}
+                    {% if page %}
+                        {% if page != events.page %}
+                            <a href="{{ url_for('main.events', page=page) }}">{{ page }}</a>
+                        {% else %}
+                            <strong>{{ page }}</strong>
+                        {% endif %}
+                    {% else %}
+                        <span class=ellipsis>…</span>
+                    {% endif %}
+                {%- endfor %}
+            </div>
         </section>
     </main>
 {% endblock %}

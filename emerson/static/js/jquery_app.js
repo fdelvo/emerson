@@ -3,11 +3,13 @@ $(document).ready(function () {
     $(".index-picture").mouseover(function () {
         if ($(this).attr("src") === "/static/images/Emerson.jpg") {
             $(this).animate({
-                opacity: 0
+                opacity: 0,
+                width: 0
             }, 700, "linear", function () {
                 $(this).attr("src", "/static/images/Emerson2.jpg");
-            }).delay(500).animate({
-                opacity: 1
+            }).delay(250).animate({
+                opacity: 1,
+                width: '60%'
             }, 700, "linear", function () {
                 $("#revert").show();
             });
@@ -16,11 +18,13 @@ $(document).ready(function () {
 
     $("#revert").click(function () {
         $(".index-picture").animate({
-            opacity: 0
+            opacity: 0,
+            width: 0
         }, 700, "linear", function () {
             $(this).attr("src", "/static/images/Emerson.jpg");
-        }).delay(500).animate({
-            opacity: 1
+        }).delay(250).animate({
+            opacity: 1,
+            width: '60%'
         }, 700, "linear", function () {
             $("#revert").hide();
         });

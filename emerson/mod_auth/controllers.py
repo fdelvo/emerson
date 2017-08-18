@@ -51,6 +51,7 @@ def signup():
         return render_template('auth/signup.html', form=form)
 
 
+@mod_auth.route('')
 @mod_auth.route('login', methods=['GET', 'POST'])
 def login():
     form = SigninForm()

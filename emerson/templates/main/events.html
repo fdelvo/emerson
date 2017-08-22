@@ -10,8 +10,8 @@
                     <header><h3>{{ event.name }}</h3></header>
                     <div class="event-info">
                         <ul>
-                            <li>{{ event.date | datetimeformat }}</li>
-                            <li>{{ event.location }}</li>
+                            <li>Date: {{ event.date | datetimeformat }} {{ event.test }}</li>
+                            <li>Location: {{ event.location }}</li>
                             <li><a href="{{ event.link }}">Link to event</a></li>
                             <li>{{ event.remarks }}</li>
                         </ul>

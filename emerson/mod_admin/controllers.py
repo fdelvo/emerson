@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from flask_login import current_user
 from sqlalchemy import desc, exc
@@ -91,8 +91,10 @@ def new_event():
         if len(events_to_import) > 1:
             db.session.bulk_save_objects(events_to_import)
             db.session.commit()
-            return render_template('admin/index.html')
-        return redirect(url_for('administration.index'))
+            flash(f'Imported: {len(events_to_import)}; Duplicates: {duplicate_events}', 'success')
+            return url_for('administration.events')
+        flash(f'Duplicates: {duplicate_events}', 'fail')
+        return url_for('administration.events')
     return render_template('admin/new_event.html', form=form)
 
 

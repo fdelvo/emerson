@@ -37,6 +37,7 @@ class Event(db.Model):
         self.link = link
         self.remarks = remarks
         self.user_id = user_id
+        self.test = 'Test'
 
     def __repr__(self):
         return '<Event %r>' % self.name

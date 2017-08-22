@@ -59,7 +59,8 @@ function importFacebookEvents() {
                     data: JSON.stringify(stringifyConversion),
                     contentType: 'application/json;charset=UTF-8',
                     success: function (result) {
-                        console.log(result)
+                        console.log(result);
+                        location.href = result;
                     }
                 });
             }

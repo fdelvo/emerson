@@ -68,6 +68,16 @@ table thead tr:first-child th {
     border-bottom: none;
 }
 
+table thead tr th span {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0271fb;
+}
+
+table thead tr th span:hover {
+    color: #000000;
+}
+
 table tbody tr td {
     border-bottom: 0.05rem solid#c9c9c9;
     border-left: 0.05rem solid#c9c9c9;
@@ -90,6 +100,10 @@ table tbody tr:last-child td {
 
 table tfoot th {
     font-weight: normal;
+}
+
+.in-past {
+    text-decoration: line-through;
 }
 
 .admin-nav {

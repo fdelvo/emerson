@@ -56,12 +56,14 @@ def events(page):
     return render_template('admin/events.html', events=events)
 
 
+@mod_admin.route('import_events')
+
+
 @mod_admin.route('new_event', methods=['GET', 'POST'])
 @login_required
 def new_event():
     form = EventForm()
     if request.method == 'POST' and not request.json:
-        print(request.data)
         if form.validate():
             new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data,
                               current_user.id)
@@ -72,22 +74,25 @@ def new_event():
         flash_errors(form)
         return render_template('admin/new_event.html', form=form)
     if request.method == 'POST' and request.json:
-        print(request.json)
-        imported_events = 0
-        failed_to_import_events = 0
+        events_to_import = []
+        duplicate_events = 0
         for event in request.json['eventsToImport']:
+            exists = db.session.query(Event.id).filter_by(name=event['name']).scalar() is not None
+            print(exists)
+            if exists:
+                duplicate_events += 1
+                continue
             new_event = Event(event['name'], event['location'], event['date'],
                               event['link'],
                               event['remarks'],
                               current_user.id)
-            db.session.add(new_event)
-            try:
-                db.session.commit()
-                imported_events+=1
-            except exc.IntegrityError as error:
-                failed_to_import_events += 1
-                print("oops")
-                continue
+            events_to_import.append(new_event)
+        print(f'Duplicates: {duplicate_events}')
+        if len(events_to_import) > 1:
+            db.session.bulk_save_objects(events_to_import)
+            db.session.commit()
+            return render_template('admin/index.html')
+        return redirect(url_for('administration.index'))
     return render_template('admin/new_event.html', form=form)
 
 

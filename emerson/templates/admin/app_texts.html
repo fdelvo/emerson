@@ -1,0 +1,42 @@
+{% extends "admin/layout_admin.html" %}
+{% block main %}
+    <header><h2>App Texts</h2></header>
+    <table>
+        <thead>
+        <tr>
+            <th>Site</th>
+            <th>Keyword</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for app_text in app_texts.items %}
+            <tr>
+                <td>{{ app_text.site }}</td>
+                <td>{{ app_text.keyword }}</td>
+                <td><a href="/admin/edit_app_text/{{ app_text.id }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="3">
+                <div class=pagination>
+                    <span>Pages: </span>
+                    {%- for page in app_texts.iter_pages() %}
+                        {% if page %}
+                            {% if page != app_texts.page %}
+                                <a href="{{ url_for('administration.app_texts', page=page) }}">{{ page }}</a>
+                            {% else %}
+                                <strong>{{ page }}</strong>
+                            {% endif %}
+                        {% else %}
+                            <span class=ellipsis>…</span>
+                        {% endif %}
+                    {%- endfor %}
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock %}

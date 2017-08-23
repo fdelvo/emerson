@@ -1,0 +1,16 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block main %}
+        <header><h2>Edit spotify link</h2></header>
+        <form action="{{ url_for('administration.edit_spotify', id=spotify.id) }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.description.label }}
+            {{ form.description }}
+
+            {{ form.embedded_link.label }}
+            {{ form.embedded_link }}
+
+            {{ form.submit }}
+        </form>
+{% endblock %}

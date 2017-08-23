@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Anton|Open+Sans:300,400,700|Reem+Kufi|PT+Mono');
+
+/* Default link styling */
+a:link {
+    color: #0271fb;
+}
+
+a:visited {
+    color: #bd02fb;
+}
+
+a:hover, a:focus {
+    color: #000;
+}
+
+a:active {
+    color: #fb0e02;
+}
+
+/* ---------------------------------------------------------
+   Author's styles
+   ---------------------------------------------------------*/
+
+body {
+    /*font-family: 'Reem Kufi', sans-serif;*/
+    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'PT Mono', monospace;
+    background-color: #f2eae8;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 14fr;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "nav nav nav" "left_sidebar center right_sidebar";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Mono', monospace;
+    margin: 0;
+}
+
+header {
+    padding: 2rem 2rem 2rem 2rem;
+    color: #212121 !important;
+}
+
+main {
+    grid-area: center;
+    background-color: #FFFFFF;
+    border-left: 0.05rem solid #c9c9c9;
+    border-right: 0.05rem solid #c9c9c9;
+    border-bottom: 0.05rem solid #c9c9c9;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "content";
+}
+
+main header {
+    grid-area: header;
+}
+
+main section {
+    grid-area: content;
+    padding: 1rem;
+    display: grid;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.pagination {
+    padding: 1rem;
+}
+
+.highlight {
+    color: #ca519e;
+}
+
+/* Navigation */
+
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav-button {
+    display: none;
+}
+
+.main-nav {
+    border-bottom: 0.05rem solid #c9c9c9;
+    text-align: center;
+    font-family: 'PT Mono', monospace;
+    font-size: 1.5rem;
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: "a1 a2 a3 a4 a5 a6";
+}
+
+.main-nav a {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #7598b8;
+    text-decoration: none;
+    align-self: center;
+}
+
+.main-nav a:hover {
+    color: #ca519e;
+}
+
+.main-nav #a1 {
+    grid-area: a1
+}
+
+.main-nav #a2 {
+    grid-area: a2
+}
+
+.main-nav #a3 {
+    grid-area: a3
+}
+
+.main-nav #a4 {
+    grid-area: a4
+}
+
+.main-nav #a5 {
+    grid-area: a5
+}
+
+.main-nav #a6 {
+    grid-area: a6
+}
+
+/* Index */
+
+.index {
+    background-color: #f2eae8;
+    height: 100vh;
+    padding: 0;
+}
+
+.index-picture {
+    justify-self: center;
+    align-self: center;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+    width: 60%;
+}
+
+#revert {
+    position: absolute;
+    bottom: 5%;
+    cursor: pointer;
+    left: 5%;
+}
+
+#revert:hover {
+    color: #ca519e;
+}
+
+/* About */
+
+.about {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "about-header about-header" "about-description about-description" "about-band-picture about-band-members";
+}
+
+.about-header {
+    grid-area: about-header;
+    padding: 1rem;
+}
+
+.about-band-description {
+    grid-area: about-description;
+    padding: 1rem;
+}
+
+.about-band-picture {
+    grid-area: about-band-picture;
+}
+
+.about-band-members {
+    grid-area: about-band-members;
+    padding: 1rem;
+}
+
+/* News */
+
+.news-article {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "news-article-thumbnail news-article-header" "news-article-thumbnail news-article-content" "news-article-thumbnail news-article-footer";
+}
+
+.news-article-content {
+    grid-area: news-article-content;
+    padding: 1rem;
+    overflow: hidden;
+    align-self: center;
+}
+
+.news-article-content a {
+    display: inline;
+}
+
+.news-article-header {
+    grid-area: news-article-header;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.news-article-footer {
+    grid-area: news-article-footer;
+    padding: 1rem;
+}
+
+.news-article-thumbnail {
+    grid-area: news-article-thumbnail;
+}
+
+/* Events */
+
+.event {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "title info";
+}
+
+.event header {
+    grid-area: title;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+}
+
+.event-info {
+    grid-area: info;
+}
+
+/* Music */
+
+.music {
+    grid-auto-rows: auto;
+    grid-template-areas: "tab_control" "embedded_links";
+}
+
+.music .embedded-links {
+    grid-area: embedded_links;
+    align-self: center;
+    text-align: center;
+}
+
+.music .tab-control {
+    grid-area: tab_control;
+    justify-self: center;
+    padding: 1rem;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "spotify youtube";
+}
+
+.tab-control i {
+    color: #7598b8;
+    justify-self: center;
+}
+
+.tab-control i:hover {
+    color: #ca519e;
+    cursor: pointer;
+}
+
+#spotify {
+    grid-area: spotify
+}
+
+#youtube {
+    grid-area: youtube
+}
+
+/* Contact */
+
+.contact-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-ul li {
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 100%;
+        grid-template-areas: "nav" "center";
+    }
+
+    main {
+        border-left: none;
+        border-right: none;
+    }
+
+    /* Mobile Nav */
+
+    .main-nav {
+        display: none;
+    }
+
+    .mobile-nav-button {
+        display: block;
+        grid-area: nav;
+        text-align: right;
+        border-bottom: 0.05rem solid #c9c9c9;
+        padding-right: 1rem;
+        color: #7598b8;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        z-index: 999;
+        background-color: #f2eae8;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-rows: auto repeat(6, 1fr);
+        grid-template-areas: "close-nav" "ma1" "ma2" "ma3" "ma4" "ma5" "ma6";
+    }
+
+    .mobile-nav a {
+        justify-self: center;
+        align-self: center;
+    }
+
+    .mobile-nav #close-nav {
+        grid-area: close-nav;
+        justify-self: end;
+        display: block;
+        padding-right: 1rem;
+        color: #7598b8;
+    }
+
+    .mobile-nav #ma1 {
+        grid-area: ma1;
+    }
+
+    .mobile-nav #ma2 {
+        grid-area: ma2;
+    }
+
+    .mobile-nav #ma3 {
+        grid-area: ma3;
+    }
+
+    .mobile-nav #ma4 {
+        grid-area: ma4;
+    }
+
+    .mobile-nav #ma5 {
+        grid-area: ma5;
+    }
+
+    .mobile-nav #ma6 {
+        grid-area: ma6;
+    }
+
+    /* Mobile Events */
+
+    .event {
+        display: grid;
+        grid-template-rows: auto 2fr;
+        grid-template-columns: auto;
+        grid-template-areas: "title" "info";
+    }
+
+    .event header {
+        grid-area: title;
+        padding: 0;
+        justify-self: start;
+    }
+
+    .event-info {
+        grid-area: info;
+    }
+
+    /* Mobile About */
+
+    .about {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: "about-header" "about-description" "about-band-picture" "about-band-members";
+    }
+
+    .about-header {
+        grid-area: about-header;
+        padding: 0 0 1rem 0;
+    }
+
+    .about-band-description {
+        grid-area: about-description;
+        padding: 1rem 0 1rem 0;
+    }
+
+    .about-band-picture {
+        grid-area: about-band-picture;
+    }
+
+    .about-band-members {
+        grid-area: about-band-members;
+        padding: 1rem 0 0 0;
+    }
+}
+
+/* ---------------------------------------------------------
+   Print styles
+   ---------------------------------------------------------*/
+@media print {
+    * {
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background: transparent !important;
+    }
+
+    html {
+        background-color: #fff;
+    }
+
+    /* Hide navigation */
+    nav {
+        display: none;
+    }
+
+    /* Show link destinations in brackets after the link text */
+    a[href]:after {
+        content: " (" attr(href) ") ";
+    }
+
+    a[href] {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #06c;
+        border: none;
+    }
+
+    /* Don't show link destinations for JavaScript or internal links */
+    a[href^="javascript:"]:after, a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Show abbr title value in brackets after the text */
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    figure {
+        margin-bottom: 1em;
+        overflow: hidden;
+    }
+
+    figure img {
+        border: 1px solid #000;
+    }
+}

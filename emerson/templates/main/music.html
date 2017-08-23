@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+{% block main %}
+    <main role="main">
+        <header>
+            <h1>MUSIC</h1>
+        </header>
+        <section class="music">
+
+            <nav class="tab-control">
+                <i id="spotify" class="fa fa-spotify fa-2x" aria-hidden="true"></i>
+                <i id="youtube" class="fa fa-youtube fa-2x" aria-hidden="true"></i>
+            </nav>
+            <div class="embedded-links">
+                <div id="youtube-container">
+                    {% for video in videos %}
+                        {{ video.embedded_link | safe }}
+                    {% endfor %}
+                </div>
+                <div id="spotify-container">
+                    {% for spotify in spotifys %}
+                        {{ spotify.embedded_link | safe }}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

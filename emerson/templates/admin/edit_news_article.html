@@ -1,0 +1,16 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block main %}
+        <header><h2>Edit news article</h2></header>
+        <form action="{{ url_for('administration.edit_news_article', id=news_article.id) }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.title.label }}
+            {{ form.title }}
+
+            {{ form.content.label }}
+            {{ form.content }}
+
+            {{ form.submit }}
+        </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block main %}
+        <header><h2>Edit app text</h2></header>
+        <ul>
+            <li>Site: {{ app_text.site }}</li>
+            <li>Keyword: {{ app_text.keyword }}</li>
+        </ul>
+        <form action="{{ url_for('administration.edit_app_text', id=app_text.id) }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.text.label }}
+            {{ form.text }}
+
+            {{ form.submit }}
+        </form>
+{% endblock %}

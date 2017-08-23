@@ -1,0 +1,25 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block main %}
+        <header><h2>New event</h2></header>
+        <form action="{{ url_for('administration.new_event') }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label }}
+            {{ form.name }}
+            
+            {{ form.location.label }}
+            {{ form.location }}
+            
+            {{ form.date.label }}
+            {{ form.date }}
+            
+            {{ form.link.label }}
+            {{ form.link }}
+            
+            {{ form.remarks.label }}
+            {{ form.remarks }}
+
+            {{ form.submit }}
+        </form>
+{% endblock %}

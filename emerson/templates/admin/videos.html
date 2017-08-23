@@ -1,0 +1,48 @@
+{% extends "admin/layout_admin.html" %}
+{% block main %}
+    <header><h2>Videos</h2></header>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="4"><a href="/admin/new_video">Create video</a></th>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <th>Embedded link</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for video in videos.items %}
+            <tr>
+                <td>{{ video.description }}</td>
+                <td>{{ video.embedded_link }}</td>
+                <td>{{ video.user.username }}</td>
+                <td><a href="/admin/edit_video/{{ video.id }}">Edit</a> | <a onclick="return confirm('Are you sure you want to delete this item?');" href="/admin/delete_video/{{ video.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="4">
+                <div class=pagination>
+                    <span>Pages: </span>
+                    {%- for page in videos.iter_pages() %}
+                        {% if page %}
+                            {% if page != videos.page %}
+                                <a href="{{ url_for('administration.videos', page=page) }}">{{ page }}</a>
+                            {% else %}
+                                <strong>{{ page }}</strong>
+                            {% endif %}
+                        {% else %}
+                            <span class=ellipsis>…</span>
+                        {% endif %}
+                    {%- endfor %}
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock %}

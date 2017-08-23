@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Set this to the main language of your site -->
+<head>
+    <meta charset="utf-8">
+
+    <title>ADMIN - EMERSON PRIME</title>
+
+    <!-- Enter a brief description of your page -->
+    <meta name="description" content="">
+
+    <!-- Define a viewport to mobile devices to use - telling the browser to assume that the page is as wide as the device (width=device-width,
+    and setting the initial page zoom level to be 1 (initial-scale=1.0), and fixinng width=device-width for iOS9 (shtink-to-fit=no) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+
+    <!-- Include the site stylesheet -->
+    <link href="/static/css/styles_admin.css" rel="stylesheet" media="all">
+
+    <script src="https://use.fontawesome.com/bfdfbcedeb.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script src="/static/js/fb_js_sdk.js"></script>
+
+</head>
+<body>
+
+<!-- The page header typically contains items such as your site heading, logo and possibly the main site navigation -->
+<!-- ARIA: the landmark role "banner" is set as it is the prime heading or internal title of the page -->
+<nav class="admin-nav" role="navigation">
+    <ul>
+        <li><a href="/admin/index">Admin</a></li>
+        <li><a href="/admin/app_texts">App Texts</a></li>
+        <li><a href="/admin/news">News</a></li>
+        <li><a href="/admin/videos">Videos</a></li>
+        <li><a href="/admin/events">Events</a></li>
+        <li><a href="/admin/spotify">Spotify</a></li>
+    </ul>
+</nav>
+<main>
+    <header>
+        <h1>Admin</h1>
+        <a href="" onclick="window.history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a> | <a href="/auth/logout">Log out</a>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <section>
+        {% block main %} {% endblock %}
+    </section>
+</main>
+
+
+</body>
+</html>

@@ -39,5 +39,20 @@ $(document).ready(function () {
     $("#youtube").click(function () {
         $("#spotify-container").hide();
         $("#youtube-container").show();
-    })
+    });
+
+    $(".mobile-nav").hide();
+    $(".mobile-nav i").hide();
+
+    $("#open-nav").click(function () {
+        $(".mobile-nav").show();
+        $(".mobile-nav-button span").hide();
+        $(".mobile-nav i").show();
+    });
+
+    $("#close-nav-i").click(function () {
+        $(".mobile-nav").hide();
+        $(".mobile-nav-button span").show();
+        $(".mobile-nav i").hide();
+    });
 });

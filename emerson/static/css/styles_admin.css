@@ -46,7 +46,7 @@ table {
     text-align: left;
     border-collapse: collapse;
     table-layout: fixed;
-    width: 100%;
+    max-width: 100%;
 }
 
 table thead tr th {

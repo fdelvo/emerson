@@ -10,7 +10,7 @@
 
     <!-- Define a viewport to mobile devices to use - telling the browser to assume that the page is as wide as the device (width=device-width,
     and setting the initial page zoom level to be 1 (initial-scale=1.0), and fixinng width=device-width for iOS9 (shtink-to-fit=no) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
 
     <!-- Include the site stylesheet -->
@@ -19,7 +19,7 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-    <script src="../static/js/jquery_app.js"></script>
+    <script src="/static/js/jquery_app.js"></script>
     <script src="https://use.fontawesome.com/bfdfbcedeb.js"></script>
 
 </head>
@@ -37,6 +37,16 @@
     <a id="a4" href="/music">Music</a>
     <a id="a5" href="/events">Events</a>
     <a id="a6" href="/contact">Contact & Social Media</a>
+</nav>
+<div class="mobile-nav-button"><span id="open-nav">Menu</span></div>
+<nav class="mobile-nav" role="navigation">
+    <span id="close-nav"><i id="close-nav-i" class="fa fa-times" aria-hidden="true"></i></span>
+    <a id="ma1" href="/">Home</a>
+    <a id="ma2" href="/about">About</a>
+    <a id="ma3" href="/news">News</a>
+    <a id="ma4" href="/music">Music</a>
+    <a id="ma5" href="/events">Events</a>
+    <a id="ma6" href="/contact">Contact & Social Media</a>
 </nav>
 </body>
 </html>

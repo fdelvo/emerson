@@ -29,6 +29,12 @@ def news(page):
     return render_template('main/news.html', news=news)
 
 
+@mod_main_app.route('news_article/<int:id>')
+def news_article(id):
+    news_article = NewsArticle.query.filter_by(id=id).first()
+    return render_template('main/news_article.html', news_article=news_article)
+
+
 @mod_main_app.route('music')
 def music():
     videos = Video.query.all()

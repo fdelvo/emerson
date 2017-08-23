@@ -4,7 +4,7 @@
     <table>
         <thead>
         <tr>
-            <th><a href="/admin/new_video">Create video</a></th>
+            <th colspan="4"><a href="/admin/new_video">Create video</a></th>
         </tr>
         <tr>
             <th>Description</th>
@@ -26,7 +26,7 @@
         </tbody>
         <tfoot>
         <tr>
-            <th colspan="3">
+            <th colspan="4">
                 <div class=pagination>
                     <span>Pages: </span>
                     {%- for page in videos.iter_pages() %}

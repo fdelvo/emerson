@@ -1,0 +1,14 @@
+{% extends "main/layout.html" %}
+{% block main %}
+    <main role="main">
+        <header>
+            <h1>NEWS</h1>
+            <a href="" onclick="window.history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a>
+        </header>
+        <section class="news">
+            <h2>{{ news_article.title }}</h2>
+            <span>{{ news_article.date | datetimeformat }}</span>
+            <p>{{ news_article.content }}</p>
+        </section>
+    </main>
+{% endblock %}

@@ -49,3 +49,42 @@ class SpotifyForm(Form):
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
+
+
+class NewsArticleEditForm(Form):
+    title = StringField('Title', [validators.DataRequired("Please enter a text.")])
+    content = StringField('Content', [validators.DataRequired("Please enter a text.")], widget=TextArea())
+    submit = SubmitField("Save news article")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+
+class EventEditForm(Form):
+    name = StringField('Name', [validators.DataRequired("Please enter a text.")])
+    location = StringField('Location', [validators.DataRequired("Please enter a text.")])
+    date = DateTimeField('Date', [validators.DataRequired("Please enter a date.")], format='%d.%m.%Y@%H:%M:%S')
+    link = StringField('Link')
+    remarks = StringField('Remarks', widget=TextArea())
+    submit = SubmitField("Save event")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+
+class VideoEditForm(Form):
+    description = StringField('Description', [validators.DataRequired("Please enter a text.")])
+    embedded_link = StringField('Embedded Link', [validators.DataRequired("Please enter a text.")])
+    submit = SubmitField("Save video")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+
+class SpotifyEditForm(Form):
+    description = StringField('Description', [validators.DataRequired("Please enter a text.")])
+    embedded_link = StringField('Embedded Link', [validators.DataRequired("Please enter a text.")])
+    submit = SubmitField("Save spotify link")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)

@@ -5,7 +5,8 @@ from sqlalchemy import desc, exc
 from sqlalchemy.exc import IntegrityError
 
 from emerson import db
-from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm, VideoForm, SpotifyForm
+from emerson.mod_admin.forms import AppTextForm, EventForm, NewsArticleForm, VideoForm, SpotifyForm, EventEditForm, \
+    NewsArticleEditForm, VideoEditForm, SpotifyEditForm
 from emerson.mod_admin.models import AppText, Event, NewsArticle, Video, Spotify
 from flask import Blueprint, render_template
 from flask import flash
@@ -102,7 +103,7 @@ def new_event():
 @login_required
 def edit_event(id):
     event = Event.query.filter_by(id=id).first()
-    form = EventForm(obj=event)
+    form = EventEditForm(obj=event)
     form.populate_obj(event)
     if request.method == 'POST' and form.validate():
         event.name = form.name.data
@@ -155,7 +156,7 @@ def new_news_article():
 @login_required
 def edit_news_article(id):
     news_article = NewsArticle.query.filter_by(id=id).first()
-    form = NewsArticleForm(obj=news_article)
+    form = NewsArticleEditForm(obj=news_article)
     form.populate_obj(news_article)
     if request.method == 'POST' and form.validate():
         news_article.title = form.title.data
@@ -194,7 +195,7 @@ def new_video():
             new_video = Video(form.embedded_link.data, form.description.data, current_user.id)
             db.session.add(new_video)
             db.session.commit()
-            flash(f'Video "{new_video.embedded_link}" created.')
+            flash(f'Video "{new_video.description}" created.', 'success')
             return redirect(url_for('administration.videos'))
         flash_errors(form)
         return render_template('admin/new_video.html', form=form)
@@ -215,13 +216,13 @@ def delete_video(id):
 @login_required
 def edit_video(id):
     video = Video.query.filter_by(id=id).first()
-    form = VideoForm(obj=video)
+    form = VideoEditForm(obj=video)
     form.populate_obj(video)
     if request.method == 'POST' and form.validate():
         video.description = form.description.data
         video.embedded_link = form.embedded_link.data
         db.session.commit()
-        flash(f'Video "{video.embedded_link}" saved.', 'success')
+        flash(f'Video "{video.description}" saved.', 'success')
         return redirect(url_for('administration.videos'))
 
     return render_template('admin/edit_video.html', form=form, video=video)
@@ -244,7 +245,7 @@ def new_spotify():
             new_spotify = Spotify(form.embedded_link.data, form.description.data, current_user.id)
             db.session.add(new_spotify)
             db.session.commit()
-            flash(f'Spotify link "{new_spotify.embedded_link}" created.')
+            flash(f'Spotify link "{new_spotify.description}" created.', 'success')
             return redirect(url_for('administration.spotify'))
         flash_errors(form)
         return render_template('admin/new_spotify.html', form=form)
@@ -255,13 +256,13 @@ def new_spotify():
 @login_required
 def edit_spotify(id):
     spotify = Spotify.query.filter_by(id=id).first()
-    form = SpotifyForm(obj=spotify)
+    form = SpotifyEditForm(obj=spotify)
     form.populate_obj(spotify)
     if request.method == 'POST' and form.validate():
         spotify.description = form.description.data
         spotify.embedded_link = form.embedded_link.data
         db.session.commit()
-        flash(f'Spotify link "{spotify.embedded_link}" saved.', 'success')
+        flash(f'Spotify link "{spotify.description}" saved.', 'success')
         return redirect(url_for('administration.spotify'))
 
     return render_template('admin/edit_spotify.html', form=form, spotify=spotify)

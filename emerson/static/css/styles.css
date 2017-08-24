@@ -21,16 +21,17 @@ a:active {
    Author's styles
    ---------------------------------------------------------*/
 
+html {
+    min-height: 100vh;
+}
+
 body {
     /*font-family: 'Reem Kufi', sans-serif;*/
     /*font-family: 'Amatic SC', cursive;*/
     font-family: 'PT Mono', monospace;
     background-color: #f2eae8;
     margin: 0;
-    display: grid;
-    grid-template-rows: auto 14fr;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas: "nav nav nav" "left_sidebar center right_sidebar";
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,11 +45,13 @@ header {
 }
 
 main {
-    grid-area: center;
     background-color: #FFFFFF;
     border-left: 0.05rem solid #c9c9c9;
     border-right: 0.05rem solid #c9c9c9;
     border-bottom: 0.05rem solid #c9c9c9;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-rows: auto;
     grid-template-areas: "header" "content";
@@ -92,8 +95,8 @@ img {
     text-align: center;
     font-family: 'PT Mono', monospace;
     font-size: 1.5rem;
-    grid-area: nav;
     display: grid;
+    width: 100vw;
     grid-template-columns: auto;
     grid-template-areas: "a1 a2 a3 a4 a5 a6";
 }
@@ -138,15 +141,16 @@ img {
 
 .index {
     background-color: #f2eae8;
-    height: 100vh;
-    padding: 0;
+    border: none;
 }
 
 .index-picture {
-    justify-self: center;
-    align-self: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-    width: 60%;
 }
 
 #revert {
@@ -281,6 +285,17 @@ img {
     grid-area: youtube
 }
 
+#youtube-container {
+    text-align: center;
+}
+
+#youtube-container iframe {
+    display: block;
+    margin: 1rem auto 1rem auto;
+    width: 560px;
+    height: 315px;
+}
+
 /* Contact */
 
 .contact-ul {
@@ -295,17 +310,16 @@ img {
 
 @media (max-width: 900px) {
     body {
-        grid-template-columns: 100%;
-        grid-template-areas: "nav" "center";
+        min-height: 100vh;
     }
 
     main {
         border-left: none;
         border-right: none;
+        width: 100%;
     }
 
     /* Mobile Nav */
-
     .main-nav {
         display: none;
     }
@@ -315,13 +329,15 @@ img {
         grid-area: nav;
         text-align: right;
         border-bottom: 0.05rem solid #c9c9c9;
-        padding-right: 1rem;
+        padding: 1rem;
         color: #7598b8;
     }
 
     .mobile-nav {
         position: fixed;
         z-index: 999;
+        top: 0;
+        left: 0;
         background-color: #f2eae8;
         height: 100vh;
         width: 100vw;
@@ -336,11 +352,11 @@ img {
     }
 
     .mobile-nav #close-nav {
-        grid-area: close-nav;
-        justify-self: end;
         display: block;
-        padding-right: 1rem;
+        padding: 1rem;
         color: #7598b8;
+        grid-area: close-nav;
+        text-align: right;
     }
 
     .mobile-nav #ma1 {
@@ -368,7 +384,6 @@ img {
     }
 
     /* Mobile Events */
-
     .event {
         display: grid;
         grid-template-rows: auto 2fr;
@@ -387,7 +402,6 @@ img {
     }
 
     /* Mobile About */
-
     .about {
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto;
@@ -411,6 +425,14 @@ img {
     .about-band-members {
         grid-area: about-band-members;
         padding: 1rem 0 0 0;
+    }
+
+    /* Mobile Music */
+    #youtube-container iframe {
+        display: block;
+        margin: 1rem;
+        width: auto;
+        height: auto;
     }
 }
 

@@ -55,7 +55,7 @@ function importFacebookEvents() {
                 let stringifyConversion = {eventsToImport};
                 $.ajax({
                     type: "POST",
-                    url: "/admin/new_event",
+                    url: "/admin/import_events",
                     data: JSON.stringify(stringifyConversion),
                     contentType: 'application/json;charset=UTF-8',
                     success: function (result) {

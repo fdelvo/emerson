@@ -42,17 +42,17 @@ $(document).ready(function () {
     });
 
     $(".mobile-nav").hide();
-    $(".mobile-nav i").hide();
+    $("#close-nav").hide();
 
     $("#open-nav").click(function () {
         $(".mobile-nav").show();
-        $(".mobile-nav-button span").hide();
-        $(".mobile-nav i").show();
+        $("#open-nav").hide();
+        $("#close-nav").show();
     });
 
-    $("#close-nav-i").click(function () {
+    $("#close-nav").click(function () {
         $(".mobile-nav").hide();
-        $(".mobile-nav-button span").show();
-        $(".mobile-nav i").hide();
+        $("#open-nav").show();
+        $("#close-nav").hide();
     });
 });

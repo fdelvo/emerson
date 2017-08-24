@@ -57,24 +57,10 @@ def events(page):
     return render_template('admin/events.html', events=events)
 
 
-@mod_admin.route('import_events')
-
-
-@mod_admin.route('new_event', methods=['GET', 'POST'])
+@mod_admin.route('import_events', methods=['POST'])
 @login_required
-def new_event():
-    form = EventForm()
-    if request.method == 'POST' and not request.json:
-        if form.validate():
-            new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data,
-                              current_user.id)
-            db.session.add(new_event)
-            db.session.commit()
-            flash(f'Event "{new_event.name}" created.', 'success')
-            return redirect(url_for('administration.events'))
-        flash_errors(form)
-        return render_template('admin/new_event.html', form=form)
-    if request.method == 'POST' and request.json:
+def import_events():
+    if request.json:
         events_to_import = []
         duplicate_events = 0
         for event in request.json['eventsToImport']:
@@ -96,6 +82,24 @@ def new_event():
             return url_for('administration.events')
         flash(f'Duplicates: {duplicate_events}', 'fail')
         return url_for('administration.events')
+    flash('Something went wrong.', 'fail')
+    return url_for('administration.events')
+
+
+@mod_admin.route('new_event', methods=['GET', 'POST'])
+@login_required
+def new_event():
+    form = EventForm()
+    if request.method == 'POST' and not request.json:
+        if form.validate():
+            new_event = Event(form.name.data, form.location.data, form.date.data, form.link.data, form.remarks.data,
+                              current_user.id)
+            db.session.add(new_event)
+            db.session.commit()
+            flash(f'Event "{new_event.name}" created.', 'success')
+            return redirect(url_for('administration.events'))
+        flash_errors(form)
+        return render_template('admin/new_event.html', form=form)
     return render_template('admin/new_event.html', form=form)
 
 

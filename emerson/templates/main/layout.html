@@ -25,11 +25,6 @@
 </head>
 <body>
 
-<!-- The page header typically contains items such as your site heading, logo and possibly the main site navigation -->
-<!-- ARIA: the landmark role "banner" is set as it is the prime heading or internal title of the page -->
-
-{% block main %} {% endblock %}
-
 <nav class="main-nav" role="navigation">
     <a id="a1" href="/">Home</a>
     <a id="a2" href="/about">About</a>
@@ -38,9 +33,11 @@
     <a id="a5" href="/events">Events</a>
     <a id="a6" href="/contact">Contact & Social Media</a>
 </nav>
-<div class="mobile-nav-button"><span id="open-nav">Menu</span></div>
+<div class="mobile-nav-button">
+    <span id="open-nav">Menu</span>
+</div>
 <nav class="mobile-nav" role="navigation">
-    <span id="close-nav"><i id="close-nav-i" class="fa fa-times" aria-hidden="true"></i></span>
+    <span id="close-nav"><i class="fa fa-times" aria-hidden="true"></i></span>
     <a id="ma1" href="/">Home</a>
     <a id="ma2" href="/about">About</a>
     <a id="ma3" href="/news">News</a>
@@ -48,5 +45,8 @@
     <a id="ma5" href="/events">Events</a>
     <a id="ma6" href="/contact">Contact & Social Media</a>
 </nav>
+
+{% block main %} {% endblock %}
+
 </body>
 </html>

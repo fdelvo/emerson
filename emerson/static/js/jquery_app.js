@@ -48,7 +48,6 @@ $(document).ready(function () {
         $(".mobile-nav").show();
         $("#open-nav").hide();
         $("#close-nav").show();
-        window.scrollTo(0,1);
     });
 
     $("#close-nav").click(function () {

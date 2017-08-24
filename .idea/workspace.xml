@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a6eec96-3066-4be6-8f3b-06be0655b352" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/css/styles.css" afterPath="$PROJECT_DIR$/emerson/static/css/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" afterPath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,7 +78,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fb_js_sdk.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fb_js_sdk.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="372">
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="jquery_app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/static/js/jquery_app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+            <state relative-caret-position="310">
+              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -101,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="308" column="1" lean-forward="false" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+            <state relative-caret-position="306">
+              <caret line="333" column="5" lean-forward="true" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -259,8 +260,8 @@
         <option value="$PROJECT_DIR$/emerson/templates/main/index.html" />
         <option value="$PROJECT_DIR$/emerson/templates/main/music.html" />
         <option value="$PROJECT_DIR$/emerson/templates/main/layout.html" />
-        <option value="$PROJECT_DIR$/emerson/static/css/styles.css" />
         <option value="$PROJECT_DIR$/emerson/static/js/jquery_app.js" />
+        <option value="$PROJECT_DIR$/emerson/static/css/styles.css" />
       </list>
     </option>
   </component>
@@ -1053,22 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="57" column="46" lean-forward="false" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/emerson/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="308" column="1" lean-forward="false" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/emerson/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1080,7 +1065,7 @@
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1093,10 +1078,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/emerson/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="333" column="5" lean-forward="true" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/emerson/static/js/jquery_app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        <state relative-caret-position="310">
+          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="57" column="46" lean-forward="false" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
           <folding />
         </state>
       </provider>

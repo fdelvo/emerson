@@ -339,7 +339,7 @@ img {
         top: 0;
         left: 0;
         background-color: #f2eae8;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         display: grid;
         grid-template-rows: auto repeat(6, 1fr);

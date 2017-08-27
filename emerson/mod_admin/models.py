@@ -1,3 +1,5 @@
+from sqlalchemy.ext.hybrid import hybrid_property
+
 from emerson import db
 from datetime import datetime
 
@@ -41,6 +43,12 @@ class Event(db.Model):
 
     def __repr__(self):
         return '<Event %r>' % self.name
+
+    @hybrid_property
+    def in_past(self):
+        if self.date < datetime.now():
+            return True
+        return False
 
 
 class AppText(db.Model):

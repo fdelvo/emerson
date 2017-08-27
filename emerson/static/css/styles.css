@@ -338,13 +338,8 @@ img {
         z-index: 999;
         top: 0;
         left: 0;
-<<<<<<< HEAD
-        background-color: #f2eae8;
         height: 100%;
-=======
         background-color: #FBF9FA;
-        height: 100vh;
->>>>>>> master
         width: 100vw;
         display: grid;
         grid-template-rows: auto repeat(6, 1fr);

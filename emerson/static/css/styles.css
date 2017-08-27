@@ -27,11 +27,13 @@ html {
 
 body {
     /*font-family: 'Reem Kufi', sans-serif;*/
+    /*font-family: 'Reem Kufi', sans-serif;*/
     /*font-family: 'Amatic SC', cursive;*/
     font-family: 'PT Mono', monospace;
     background-color: #FBF9FA;
     margin: 0;
     height: 100%;
+    line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,6 +82,10 @@ img {
     color: #ca519e;
 }
 
+.in-past {
+    text-decoration: line-through;
+}
+
 /* Navigation */
 
 .mobile-nav {
@@ -91,14 +97,14 @@ img {
 }
 
 .main-nav {
-    border-bottom: 0.05rem solid #ca519e        ;
+    border-bottom: 0.05rem solid #ca519e;
     text-align: center;
     font-family: 'PT Mono', monospace;
     font-size: 1.5rem;
     display: grid;
     width: 100vw;
     grid-template-columns: auto;
-    grid-template-areas: "a1 a2 a3 a4 a5 a6";
+    grid-template-areas: "a1 a2 a3 a4 a5 a6 dark-theme";
 }
 
 .main-nav a {
@@ -135,6 +141,10 @@ img {
 
 .main-nav #a6 {
     grid-area: a6
+}
+
+.main-nav #dark-theme-on, .main-nav #dark-theme-off {
+    grid-area: dark-theme;
 }
 
 /* Index */
@@ -343,7 +353,7 @@ img {
         width: 100vw;
         display: grid;
         grid-template-rows: auto repeat(6, 1fr);
-        grid-template-areas: "close-nav" "ma1" "ma2" "ma3" "ma4" "ma5" "ma6";
+        grid-template-areas: "close-nav" "ma1" "ma2" "ma3" "ma4" "ma5" "ma6" "dark-theme-mobile";
     }
 
     .mobile-nav a {
@@ -381,6 +391,10 @@ img {
 
     .mobile-nav #ma6 {
         grid-area: ma6;
+    }
+
+    .mobile-nav #dark-theme-on-mobile, .mobile-nav #dark-theme-off-mobile {
+        grid-area: dark-theme-mobile;
     }
 
     /* Mobile Events */
@@ -433,6 +447,12 @@ img {
         margin: 1rem;
         width: auto;
         height: auto;
+    }
+}
+
+@media (orientation: portrait) {
+    .index-picture {
+        width: 90%;
     }
 }
 

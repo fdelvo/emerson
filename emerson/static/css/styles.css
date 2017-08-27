@@ -29,7 +29,7 @@ body {
     /*font-family: 'Reem Kufi', sans-serif;*/
     /*font-family: 'Amatic SC', cursive;*/
     font-family: 'PT Mono', monospace;
-    background-color: #f2eae8;
+    background-color: #FBF9FA;
     margin: 0;
     height: 100%;
 }
@@ -46,9 +46,9 @@ header {
 
 main {
     background-color: #FFFFFF;
-    border-left: 0.05rem solid #c9c9c9;
-    border-right: 0.05rem solid #c9c9c9;
-    border-bottom: 0.05rem solid #c9c9c9;
+    border-left: 0.3rem solid #ca519e;
+    border-right: 0.05rem solid #ca519e;
+    border-bottom: 0.05rem solid #ca519e;
     width: 65%;
     margin-left: auto;
     margin-right: auto;
@@ -91,7 +91,7 @@ img {
 }
 
 .main-nav {
-    border-bottom: 0.05rem solid #c9c9c9;
+    border-bottom: 0.05rem solid #ca519e        ;
     text-align: center;
     font-family: 'PT Mono', monospace;
     font-size: 1.5rem;
@@ -140,7 +140,7 @@ img {
 /* Index */
 
 .index {
-    background-color: #f2eae8;
+    background-color: #FBF9FA;
     border: none;
 }
 
@@ -148,7 +148,7 @@ img {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 50%;
+    width: 40%;
     transform: translate(-50%, -50%);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
@@ -328,7 +328,7 @@ img {
         display: block;
         grid-area: nav;
         text-align: right;
-        border-bottom: 0.05rem solid #c9c9c9;
+        border-bottom: 0.05rem solid #ca519e;
         padding: 1rem;
         color: #7598b8;
     }
@@ -338,8 +338,13 @@ img {
         z-index: 999;
         top: 0;
         left: 0;
+<<<<<<< HEAD
         background-color: #f2eae8;
         height: 100%;
+=======
+        background-color: #FBF9FA;
+        height: 100vh;
+>>>>>>> master
         width: 100vw;
         display: grid;
         grid-template-rows: auto repeat(6, 1fr);
@@ -348,7 +353,7 @@ img {
 
     .mobile-nav a {
         justify-self: center;
-        align-self: center;
+        align-self: start;
     }
 
     .mobile-nav #close-nav {

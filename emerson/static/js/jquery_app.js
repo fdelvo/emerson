@@ -9,7 +9,7 @@ $(document).ready(function () {
                 $(this).attr("src", "/static/images/Emerson2.jpg");
             }).delay(250).animate({
                 opacity: 1,
-                width: '60%'
+                width: '40%'
             }, 700, "linear", function () {
                 $("#revert").show();
             });
@@ -24,7 +24,7 @@ $(document).ready(function () {
             $(this).attr("src", "/static/images/Emerson.jpg");
         }).delay(250).animate({
             opacity: 1,
-            width: '60%'
+            width: '40%'
         }, 700, "linear", function () {
             $("#revert").hide();
         });

@@ -43,7 +43,7 @@ $(document).ready(function () {
         $('#dark-theme-on, #dark-theme-on-mobile').show();
         $('#dark-theme-off, #dark-theme-off-mobile').hide();
         $('#dark-theme').css('color', '#ca519e');
-        $('body, section, header').css({
+        $('body, section, header, .mobile-nav').css({
             'background-color': sessionStorage.getItem('bgColor'),
             'color': sessionStorage.getItem('color')
         });

@@ -351,50 +351,12 @@ img {
         height: 100%;
         background-color: #FBF9FA;
         width: 100vw;
-        display: grid;
-        grid-template-rows: auto repeat(6, 1fr);
-        grid-template-areas: "close-nav" "ma1" "ma2" "ma3" "ma4" "ma5" "ma6" "dark-theme-mobile";
+        text-align: center;
     }
 
     .mobile-nav a {
-        justify-self: center;
-        align-self: start;
-    }
-
-    .mobile-nav #close-nav {
         display: block;
-        padding: 1rem;
-        color: #7598b8;
-        grid-area: close-nav;
-        text-align: right;
-    }
-
-    .mobile-nav #ma1 {
-        grid-area: ma1;
-    }
-
-    .mobile-nav #ma2 {
-        grid-area: ma2;
-    }
-
-    .mobile-nav #ma3 {
-        grid-area: ma3;
-    }
-
-    .mobile-nav #ma4 {
-        grid-area: ma4;
-    }
-
-    .mobile-nav #ma5 {
-        grid-area: ma5;
-    }
-
-    .mobile-nav #ma6 {
-        grid-area: ma6;
-    }
-
-    .mobile-nav #dark-theme-on-mobile, .mobile-nav #dark-theme-off-mobile {
-        grid-area: dark-theme-mobile;
+        margin: 1rem 0 1rem 0;
     }
 
     /* Mobile Events */

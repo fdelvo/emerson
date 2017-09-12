@@ -4,21 +4,31 @@
 
 
         <header>
-            <h1>ABOUT</h1>
+            <h1>ÜBER</h1>
         </header>
 
         <section class="about">
             <div class="about-header">
-                {% for app_text in app_texts %}{% if "band_name" in app_text.keyword %}<h2>{{ app_text.text | safe }}</h2>{% endif %}{% endfor %}
+                {% for app_text in app_texts %}{% if "band_name" in app_text.keyword %}
+                    <h2>{{ app_text.text | safe }}</h2>{% endif %}{% endfor %}
+            </div>
+            <div class="about-band-mobile-banner">
+                <img src="../static/images/JESSE-WIEBE-EP20170622-029_SW_WEB.png"/>
             </div>
             <div class="about-band-description">
-                {% for app_text in app_texts %}{% if "band_description" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}
+                {% for app_text in app_texts %}{% if "band_description" in app_text.keyword %}
+                    <article>{{ app_text.text | safe }}</article>{% endif %}{% endfor %}
+            </div>
+            <div class="about-band-album-back-cover">
+                <img src="../static/images/Emerson-min.jpg"/>
+                <img src="../static/images/Emerson2-min.jpg"/>
             </div>
             <div class="about-band-picture">
-                <img src="../static/images/Emerson%20Prime%20-%20Bandfoto.jpg"/>
+                <img src="../static/images/JESSE-WIEBE_EP20170622-Einzelportraits-V2.png"/>
             </div>
             <div class="about-band-members">
-                {% for app_text in app_texts %}{% if "band_members" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}
+                {% for app_text in app_texts %}{% if "band_members" in app_text.keyword %}{{ app_text.text | safe }}
+                {% endif %}{% endfor %}
             </div>
         </section>
     </main>

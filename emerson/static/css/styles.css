@@ -240,8 +240,7 @@ article {
     padding: 1rem;
     overflow: hidden;
     align-self: center;
-    width: 36em;
-    max-width: 100%;
+    width: 100%;
     line-height: 1.5;
     font-size: 16px;
 }

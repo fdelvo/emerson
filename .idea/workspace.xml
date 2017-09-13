@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a6eec96-3066-4be6-8f3b-06be0655b352" name="Default" comment="">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/css/styles.css" afterPath="$PROJECT_DIR$/emerson/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" afterPath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/emerson.iml" afterPath="$PROJECT_DIR$/.idea/emerson.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/mod_admin/models.py" afterPath="$PROJECT_DIR$/emerson/mod_admin/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/css/styles.css" afterPath="$PROJECT_DIR$/emerson/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" afterPath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/templates/main/events.html" afterPath="$PROJECT_DIR$/emerson/templates/main/events.html" />
+>>>>>>> master
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/css/styles.css" afterPath="$PROJECT_DIR$/emerson/static/css/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" afterPath="$PROJECT_DIR$/emerson/static/js/jquery_app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/templates/main/events.html" afterPath="$PROJECT_DIR$/emerson/templates/main/events.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/templates/main/index.html" afterPath="$PROJECT_DIR$/emerson/templates/main/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emerson/templates/main/layout.html" afterPath="$PROJECT_DIR$/emerson/templates/main/layout.html" />
+>>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,14 +89,24 @@
       <file leaf-file-name="events.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/templates/main/events.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="447">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+=======
+            <state relative-caret-position="272">
+              <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+>>>>>>> master
+=======
             <state relative-caret-position="153">
               <caret line="9" column="86" lean-forward="true" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fb_js_sdk.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fb_js_sdk.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="969">
@@ -94,18 +119,33 @@
       <file leaf-file-name="jquery_app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/static/js/jquery_app.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="310">
+              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+=======
+            <state relative-caret-position="459">
+              <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+>>>>>>> master
+=======
             <state relative-caret-position="-528">
               <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles_admin.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/emerson/static/css/styles_admin.css">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="96">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+=======
             <state relative-caret-position="17">
               <caret line="198" column="10" lean-forward="false" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
@@ -114,13 +154,31 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="306">
+              <caret line="333" column="5" lean-forward="true" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
+=======
+            <state relative-caret-position="374">
+              <caret line="348" column="19" lean-forward="true" selection-start-line="348" selection-start-column="19" selection-end-line="348" selection-end-column="19" />
+>>>>>>> master
+=======
             <state relative-caret-position="350">
               <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/emerson/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+              <folding />
+=======
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emerson/mod_admin/models.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,6 +187,7 @@
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -923,11 +982,32 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/emerson/templates/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/emerson/mod_admin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#22#0" expanded="false" />
+          </folding>
+=======
+=======
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/emerson/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -997,10 +1077,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/emerson/static/css/styles_admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3168">
+          <caret line="198" column="10" lean-forward="false" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+=======
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+<<<<<<< HEAD
+>>>>>>> master
+          <folding />
+=======
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1008,12 +1099,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+<<<<<<< HEAD
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emerson/mod_admin/controllers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+=======
           <folding>
             <marker date="1503853383434" expanded="true" signature="1032:1743" ph="..." />
             <marker date="1503853383434" expanded="true" signature="1032:1760" ph="..." />
             <marker date="1503853383434" expanded="true" signature="1033:1729" ph="..." />
             <marker date="1503853383434" expanded="true" signature="1072:1711" ph="..." />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1025,8 +1128,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
+    <entry file="file://$PROJECT_DIR$/emerson/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+=======
         <state relative-caret-position="969">
           <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
           <folding />
@@ -1045,14 +1152,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="198" column="10" lean-forward="false" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emerson/static/js/jquery_app.js">
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="96">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+=======
+        <state relative-caret-position="459">
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+>>>>>>> master
+=======
         <state relative-caret-position="-528">
           <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
@@ -1069,12 +1187,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/emerson/templates/admin/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="306">
+          <caret line="333" column="5" lean-forward="true" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
+=======
+        <state relative-caret-position="374">
+          <caret line="348" column="19" lean-forward="true" selection-start-line="348" selection-start-column="19" selection-end-line="348" selection-end-column="19" />
+>>>>>>> master
+=======
         <state relative-caret-position="85">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/emerson/static/js/jquery_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+=======
     <entry file="file://$PROJECT_DIR$/emerson/mod_admin/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -1089,12 +1223,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/emerson/static/js/fb_js_sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="57" column="46" lean-forward="false" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+=======
     <entry file="file://$PROJECT_DIR$/emerson/templates/main/events.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="272">
+          <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+>>>>>>> master
+=======
         <state relative-caret-position="153">
           <caret line="9" column="86" lean-forward="true" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
           <folding />
@@ -1113,6 +1259,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+>>>>>>> master
           <folding />
         </state>
       </provider>

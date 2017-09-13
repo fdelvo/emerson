@@ -3,11 +3,12 @@
 {% block main %}
     <main role="main">
         <header>
-            <h1>EVENTS</h1>
+            <h1>KOMMENDE EVENTS</h1>
+            <a href="{{ url_for('main.past_events') }}">Vergangene Events</a>
         </header>
         <section class="events">
             {% for event in events.items %}
-                <div {% if event.in_past %}class="event in-past"{% else %}class="event"{% endif %} >
+                <div class="event">
                     <header><h3>{{ event.name }}</h3></header>
                     <div class="event-info">
                         <ul>

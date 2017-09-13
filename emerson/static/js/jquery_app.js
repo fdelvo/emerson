@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     $("#youtube-container").hide();
     $("#spotify").click(function () {
         $("#spotify-container").show();
@@ -25,33 +31,19 @@ $(document).ready(function () {
         $("#close-nav").hide();
     });
 
-    $('#dark-theme-off, #dark-theme-off-mobile').click(function () {
-        sessionStorage.setItem('dark-theme', true);
-        sessionStorage.setItem('bgColor', '#212121');
-        sessionStorage.setItem('color', '#FBF9FA');
+    let newsThumbnails = [
+        "Emerson-min.jpg",
+        "Emerson2-min.jpg",
+        "JESSE-WIEBE-EP20170622-513_WEB.png",
+        "JESSE-WIEBE-EP20170622-395_WEB.png",
+        "JESSE-WIEBE-EP20170622-329-Zusatzmotiv_WEB.png",
+        "JESSE-WIEBE-EP20170622-257_WEB.png",
+        "JESSE-WIEBE-EP20170622-186_WEB.png",
+        "JESSE-WIEBE-EP20170622-172_WEB.png"
+    ];
+
+    $(".news-thumbnail").each(function () {
+        let imageUrl = newsThumbnails[getRandomIntInclusive(0, 7)];
+        $(this).attr("src", "../static/images/" + imageUrl);
     });
-
-    $('#dark-theme-on, #dark-theme-on-mobile').click(function () {
-        sessionStorage.setItem('dark-theme', false);
-        sessionStorage.removeItem('bgColor');
-        sessionStorage.removeItem('color');
-    });
-
-    let darkTheme = sessionStorage.getItem('dark-theme');
-
-    if (darkTheme === 'true') {
-        $('#dark-theme-on, #dark-theme-on-mobile').show();
-        $('#dark-theme-off, #dark-theme-off-mobile').hide();
-        $('#dark-theme').css('color', '#ca519e');
-        $('body, section, header').css({
-            'background-color': sessionStorage.getItem('bgColor'),
-            'color': sessionStorage.getItem('color')
-        });
-        $('h1, h2, h3, h4, h5, h6').css({
-            'color': sessionStorage.getItem('color')
-        })
-    } else {
-        $('#dark-theme-off, #dark-theme-off-mobile').show();
-        $('#dark-theme-on, #dark-theme-on-mobile').hide();
-    }
 });

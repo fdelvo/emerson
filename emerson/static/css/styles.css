@@ -74,6 +74,11 @@ img {
     width: 100%;
 }
 
+article {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
 .pagination {
     padding: 1rem;
 }
@@ -104,7 +109,7 @@ img {
     display: grid;
     width: 100vw;
     grid-template-columns: auto;
-    grid-template-areas: "a1 a2 a3 a4 a5 a6 dark-theme";
+    grid-template-areas: "a1 a2 a3 a4 a5 a6 a7 social-media";
 }
 
 .main-nav a {
@@ -143,6 +148,14 @@ img {
     grid-area: a6
 }
 
+.main-nav #a7 {
+    grid-area: a7;
+}
+
+.main-nav #a8 {
+    grid-area: social-media;
+}
+
 .main-nav #dark-theme-on, .main-nav #dark-theme-off {
     grid-area: dark-theme;
 }
@@ -179,7 +192,7 @@ img {
 .about {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "about-header about-header" "about-description about-description" "about-band-picture about-band-members";
+    grid-template-areas: "about-header about-header" "about-description about-album-back-cover" "about-band-picture about-band-members";
 }
 
 .about-header {
@@ -192,22 +205,34 @@ img {
     padding: 1rem;
 }
 
+.about-band-album-back-cover {
+    grid-area: about-album-back-cover;
+    padding: 1rem;
+}
+
 .about-band-picture {
     grid-area: about-band-picture;
 }
 
 .about-band-members {
     grid-area: about-band-members;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.about-band-mobile-banner {
+    display: none;
 }
 
 /* News */
 
+.news {
+    padding: 0 2rem 2rem 2rem;
+}
+
 .news-article {
     display: grid;
-    grid-template-rows: 1fr auto 1fr;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "news-article-thumbnail news-article-header" "news-article-thumbnail news-article-content" "news-article-thumbnail news-article-footer";
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "news-article-header" "news-article-content";
 }
 
 .news-article-content {
@@ -215,6 +240,9 @@ img {
     padding: 1rem;
     overflow: hidden;
     align-self: center;
+    width: 100%;
+    line-height: 1.5;
+    font-size: 16px;
 }
 
 .news-article-content a {
@@ -226,13 +254,13 @@ img {
     padding: 0 1rem 1rem 1rem;
 }
 
-.news-article-footer {
-    grid-area: news-article-footer;
-    padding: 1rem;
-}
-
 .news-article-thumbnail {
     grid-area: news-article-thumbnail;
+}
+
+.news-thumbnail {
+    height: 250px;
+    width: auto;
 }
 
 /* Events */
@@ -241,6 +269,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "title info";
+    border-bottom: 0.05rem solid #ca519e;
 }
 
 .event header {
@@ -318,7 +347,62 @@ img {
     padding: 1rem;
 }
 
-@media (max-width: 900px) {
+/* Photos */
+
+.gallery {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+    grid-template-areas:
+            "photo1 photo1 photo1 photo1"
+            "photo2 photo3 photo4 photo5"
+            "photo8 photo8 photo8 photo8"
+            "photo6 photo7 photo9 photo10"
+}
+
+#photo1 {
+    grid-area: photo1;
+}
+
+#photo2 {
+    grid-area: photo2;
+}
+
+#photo3 {
+    grid-area: photo3;
+}
+
+#photo4 {
+    grid-area: photo4;
+}
+
+#photo5 {
+    grid-area: photo5;
+}
+
+#photo6 {
+    grid-area: photo6;
+}
+
+#photo7 {
+    grid-area: photo7;
+}
+
+#photo8 {
+    grid-area: photo8;
+}
+
+#photo9 {
+    grid-area: photo9;
+}
+
+#photo10 {
+    grid-area: photo10;
+}
+
+@media (max-width: 960px) {
     body {
         min-height: 100vh;
     }
@@ -327,6 +411,12 @@ img {
         border-left: none;
         border-right: none;
         width: 100%;
+    }
+
+    article {
+        width: 100%;
+        line-height: 1.5;
+        font-size: 16px;
     }
 
     /* Mobile Nav */
@@ -348,53 +438,16 @@ img {
         z-index: 999;
         top: 0;
         left: 0;
+        height: 100%;
         background-color: #FBF9FA;
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        grid-template-rows: auto repeat(6, 1fr);
-        grid-template-areas: "close-nav" "ma1" "ma2" "ma3" "ma4" "ma5" "ma6" "dark-theme-mobile";
+        width: 100%;
+        text-align: left;
     }
 
     .mobile-nav a {
-        justify-self: center;
-        align-self: start;
-    }
-
-    .mobile-nav #close-nav {
         display: block;
-        padding: 1rem;
-        color: #7598b8;
-        grid-area: close-nav;
-        text-align: right;
-    }
-
-    .mobile-nav #ma1 {
-        grid-area: ma1;
-    }
-
-    .mobile-nav #ma2 {
-        grid-area: ma2;
-    }
-
-    .mobile-nav #ma3 {
-        grid-area: ma3;
-    }
-
-    .mobile-nav #ma4 {
-        grid-area: ma4;
-    }
-
-    .mobile-nav #ma5 {
-        grid-area: ma5;
-    }
-
-    .mobile-nav #ma6 {
-        grid-area: ma6;
-    }
-
-    .mobile-nav #dark-theme-on-mobile, .mobile-nav #dark-theme-off-mobile {
-        grid-area: dark-theme-mobile;
+        padding: 1rem 0 1rem 1rem;
+        border-bottom: 0.05rem solid #ca519e
     }
 
     /* Mobile Events */
@@ -419,7 +472,7 @@ img {
     .about {
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto;
-        grid-template-areas: "about-header" "about-description" "about-band-picture" "about-band-members";
+        grid-template-areas: "about-header" "about-banner" "about-description" "about-band-picture" "about-band-members";
     }
 
     .about-header {
@@ -441,6 +494,15 @@ img {
         padding: 1rem 0 0 0;
     }
 
+    .about-band-album-back-cover {
+        display: none;
+    }
+
+    .about-band-mobile-banner {
+        display: unset;
+        grid-area: about-banner;
+    }
+
     /* Mobile Music */
     #youtube-container iframe {
         display: block;
@@ -448,6 +510,21 @@ img {
         width: auto;
         height: auto;
     }
+
+    /* Mobiles Photos*/
+
+    .gallery {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+            "photo1 photo1"
+            "photo2 photo3"
+            "photo8 photo8"
+            "photo4 photo5"
+            "photo6 photo7"
+            "photo9 photo10"
+}
 }
 
 @media (orientation: portrait) {

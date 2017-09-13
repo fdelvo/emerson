@@ -7,15 +7,12 @@
         <section class="news">
             {% for news_article in news.items %}
                 <div class="news-article">
-                    <div class="news-article-thumbnail">
-                        <a href=""><img src="../static/images/index_image.jpg"/></a>
-                    </div>
                     <div class="news-article-header">
                         <h2>{{ news_article.title }}</h2>
                         <span>{{ news_article.date | datetimeformat }}</span>
                     </div>
                     <div class="news-article-content">
-                        {{ news_article.content[:160] + '[...] ' }}<a
+                        {{ news_article.content[:500] + '[...] ' }}<a
                             href="/news_article/{{ news_article.id }}">read</a>
                     </div>
                 </div>

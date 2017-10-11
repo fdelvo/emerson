@@ -146,7 +146,7 @@ def new_news_article():
     form = NewsArticleForm()
     if request.method == 'POST':
         if form.validate():
-            new_news_article = NewsArticle(form.title.data, form.content.data, datetime.datetime.now(), current_user.id)
+            new_news_article = NewsArticle(form.title.data, form.content.data, datetime.now(), current_user.id)
             db.session.add(new_news_article)
             db.session.commit()
             flash(f'News article "{new_news_article.title}" created.', 'success')

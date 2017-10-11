@@ -4,7 +4,7 @@ from flask_migrate import Migrate, MigrateCommand
 from emerson import app, db
 
 
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('config.ProductionConfig')
 from emerson.mod_admin import models
 migrate = Migrate(app, db)
 manager = Manager(app)

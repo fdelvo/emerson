@@ -7,7 +7,7 @@ import flask.globals as flask_global
 from jinja2 import Environment
 
 app = Flask(__name__)
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('config.ProductionConfig')
 db = SQLAlchemy(app)
 
 

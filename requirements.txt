@@ -8,3 +8,4 @@ SQLAlchemy==1.1.8
 WTForms==2.1
 Flask_WTF==0.14.2
 psycopg2==2.7.1
+python_==3.6.2

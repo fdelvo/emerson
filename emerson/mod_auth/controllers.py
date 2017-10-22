@@ -1,6 +1,8 @@
 # Import flask dependencies
-from urllib.parse import urlparse, urljoin
-
+try:
+    from urllib.parse import urlparse
+except ImportError:
+     from urlparse import urlparse
 from emerson import db, app
 from emerson.mod_auth.models import AdminUser
 from flask import Blueprint, request, render_template, \

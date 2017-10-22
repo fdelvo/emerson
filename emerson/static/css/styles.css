@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Anton|Open+Sans:300,400,700|Reem+Kufi|PT+Mono');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* Default link styling */
 a:link {
@@ -26,10 +26,7 @@ html {
 }
 
 body {
-    /*font-family: 'Reem Kufi', sans-serif;*/
-    /*font-family: 'Reem Kufi', sans-serif;*/
-    /*font-family: 'Amatic SC', cursive;*/
-    font-family: 'PT Mono', monospace;
+    font-family: 'Open Sans', sans-serif;
     background-color: #FBF9FA;
     margin: 0;
     height: 100%;
@@ -37,7 +34,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'PT Mono', monospace;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
 
@@ -79,6 +76,34 @@ article {
     font-size: 16px;
 }
 
+form {
+    display: block;
+}
+
+form input, textarea {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+form label {
+    margin: 1rem;
+}
+
+form input[type=submit] {
+    outline: none;
+    border: none;
+    background-color: #E2687F;
+    color: #f5f8fa;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+form input[type=submit]:hover {
+    background-color: #7598b8;
+}
+
+
 .pagination {
     padding: 1rem;
 }
@@ -104,7 +129,7 @@ article {
 .main-nav {
     border-bottom: 0.05rem solid #ca519e;
     text-align: center;
-    font-family: 'PT Mono', monospace;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     display: grid;
     width: 100vw;
@@ -283,17 +308,21 @@ article {
     grid-area: info;
 }
 
+.events ul li {
+    margin-bottom: 1rem;
+}
+
 /* Music */
 
 .music {
     grid-auto-rows: auto;
-    grid-template-areas: "tab_control" "embedded_links";
 }
 
-.music .embedded-links {
-    grid-area: embedded_links;
-    align-self: center;
-    text-align: center;
+.music .embedded-links div iframe {
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .music .tab-control {
@@ -504,11 +533,16 @@ article {
     }
 
     /* Mobile Music */
-    #youtube-container iframe {
+    iframe {
         display: block;
-        margin: 1rem;
+        margin-left: 0;
+        margin-right: 0;
         width: auto;
         height: auto;
+    }
+
+    .music {
+        padding: 0;
     }
 
     /* Mobiles Photos*/

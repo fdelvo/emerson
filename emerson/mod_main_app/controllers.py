@@ -39,12 +39,12 @@ def news_article(id):
     return render_template('main/news_article.html', news_article=news_article, app_texts=app_texts)
 
 
-@mod_main_app.route('music')
+@mod_main_app.route('media')
 def music():
     app_texts = AppText.query.filter_by(site="contact").all()
     videos = Video.query.all()
     spotifys = Spotify.query.all()
-    return render_template('main/music.html', videos=videos, spotifys=spotifys, app_texts=app_texts)
+    return render_template('main/media.html', videos=videos, spotifys=spotifys, app_texts=app_texts)
 
 
 @mod_main_app.route('events', defaults={'page': 1})

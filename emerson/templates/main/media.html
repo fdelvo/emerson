@@ -2,21 +2,16 @@
 {% block main %}
     <main role="main">
         <header>
-            <h1>MUSIK</h1>
+            <h1>Media</h1>
         </header>
         <section class="music">
-
-            <nav class="tab-control">
-                <i id="spotify" class="fa fa-spotify fa-2x" aria-hidden="true"></i>
-                <i id="youtube" class="fa fa-youtube fa-2x" aria-hidden="true"></i>
-            </nav>
             <div class="embedded-links">
-                <div id="youtube-container">
+                <div>
                     {% for video in videos %}
                         {{ video.embedded_link | safe }}
                     {% endfor %}
                 </div>
-                <div id="spotify-container">
+                <div>
                     {% for spotify in spotifys %}
                         {{ spotify.embedded_link | safe }}
                     {% endfor %}

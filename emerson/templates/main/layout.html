@@ -28,19 +28,19 @@
 <nav class="main-nav" role="navigation">
     <a id="a1" href="/">Home</a>
     <a id="a2" href="/about">Über</a>
-    <a id="a3" href="/news">News</a>
-    <a id="a4" href="/music">Musik</a>
-    <a id="a5" href="/events">Events</a>
-    <a id="a6" href="/photos">Fotos</a>
-    <a id="a7" href="/contact">Kontakt & Social Media</a>
-    <span id="a8">
-        <a id="a8" target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
+    <!--<a id="a3" href="/news">News</a>-->
+    <a id="a3" href="/media">Media</a>
+    <a id="a4" href="/events">Events</a>
+    <a id="a5" href="/photos">Fotos</a>
+    <a id="a6" href="/contact">Kontakt</a>
+    <span id="a7">
+        <a id="a7" target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-facebook-official" aria-hidden="true"></i></a>
-        <a id="a9" target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
+        <a id="a8" target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a id="a10" target="_blank" href="{% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
+        <a id="a9" target="_blank" href="{% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-youtube" aria-hidden="true"></i></a>
-        <a id="a11" href="{% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
+        <a id="a10" href="{% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-envelope-o" aria-hidden="true"></i></a>
     </span>
 </nav>
@@ -50,11 +50,11 @@
 <nav class="mobile-nav" role="navigation">
     <a id="ma1" href="/">Home</a>
     <a id="ma2" href="/about">Über</a>
-    <a id="ma3" href="/news">News</a>
-    <a id="ma4" href="/music">Musik</a>
-    <a id="ma5" href="/events">Events</a>
-    <a id="ma6" href="/photos">Fotos</a>
-    <a id="ma7" href="/contact">Kontakt & Social Media</a>
+    <!--<a id="ma3" href="/news">News</a>-->
+    <a id="ma3" href="/media">Media</a>
+    <a id="ma4" href="/events">Events</a>
+    <a id="ma5" href="/photos">Fotos</a>
+    <a id="ma6" href="/contact">Kontakt</a>
         <a target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-facebook-official" aria-hidden="true"></i></a>
         <a target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i

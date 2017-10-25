@@ -103,7 +103,6 @@ form input[type=submit]:hover {
     background-color: #7598b8;
 }
 
-
 .pagination {
     padding: 1rem;
 }
@@ -114,6 +113,15 @@ form input[type=submit]:hover {
 
 .in-past {
     text-decoration: line-through;
+}
+
+#branding {
+    text-decoration: none;
+    color: #BEBEBE;
+    font-style: italic;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
 }
 
 /* Navigation */
@@ -134,7 +142,8 @@ form input[type=submit]:hover {
     display: grid;
     width: 100vw;
     grid-template-columns: auto;
-    grid-template-areas: "a1 a2 a3 a4 a5 a6 a7 social-media";
+    max-width: 100%;
+    grid-template-areas: "a1 a2 a3 a4 a5 a6 a7";
 }
 
 .main-nav a {
@@ -384,11 +393,7 @@ form input[type=submit]:hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
-    grid-template-areas:
-            "photo1 photo1 photo1 photo1"
-            "photo2 photo3 photo4 photo5"
-            "photo8 photo8 photo8 photo8"
-            "photo6 photo7 photo9 photo10"
+    grid-template-areas: "photo1 photo1 photo1 photo1" "photo2 photo3 photo4 photo5" "photo8 photo8 photo8 photo8" "photo6 photo7 photo9 photo10"
 }
 
 #photo1 {
@@ -546,19 +551,17 @@ form input[type=submit]:hover {
     }
 
     /* Mobiles Photos*/
-
     .gallery {
-    display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-            "photo1 photo1"
-            "photo2 photo3"
-            "photo8 photo8"
-            "photo4 photo5"
-            "photo6 photo7"
-            "photo9 photo10"
-}
+        display: grid;
+        grid-template-rows: auto auto auto auto auto auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "photo1 photo1" "photo2 photo3" "photo8 photo8" "photo4 photo5" "photo6 photo7" "photo9 photo10"
+    }
+
+    #branding {
+        position: static;
+        float: right;
+    }
 }
 
 @media (orientation: portrait) {

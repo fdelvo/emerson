@@ -46,4 +46,8 @@ $(document).ready(function () {
         let imageUrl = newsThumbnails[getRandomIntInclusive(0, 7)];
         $(this).attr("src", "../static/images/" + imageUrl);
     });
+
+    if (location.pathname==='/') {
+        $('#branding').css({position: 'fixed', bottom: '0.5rem', right: '0.5rem'});
+    }
 });

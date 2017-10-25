@@ -64,8 +64,7 @@
         <a href="{% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
                 class="fa fa-envelope-o" aria-hidden="true"></i></a>
 </nav>
-
 {% block main %} {% endblock %}
-
+<a id="branding" href="/contact">Design by fde</a>
 </body>
 </html>

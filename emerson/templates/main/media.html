@@ -1,22 +1,11 @@
-{% extends "main/layout.html" %}
-{% block main %}
-    <main role="main">
-        <header>
-            <h1>Media</h1>
-        </header>
-        <section class="music">
-            <div class="embedded-links">
-                <div>
+      <section id="media">
+          <h1>MEDIA</h1>
+          <div id="media-grid">
                     {% for video in videos %}
                         {{ video.embedded_link | safe }}
                     {% endfor %}
-                </div>
-                <div>
                     {% for spotify in spotifys %}
                         {{ spotify.embedded_link | safe }}
                     {% endfor %}
                 </div>
-            </div>
         </section>
-    </main>
-{% endblock %}

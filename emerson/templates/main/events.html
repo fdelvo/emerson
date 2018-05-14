@@ -1,32 +1,14 @@
-{% extends "main/layout.html" %}
 
-{% block main %}
-    <main role="main">
-        <header>
-            <h1>Kommende Events</h1>
-            <a href="{{ url_for('main.past_events') }}">Vergangene Events</a>
-        </header>
-        <section class="events">
-            <ul>
-                {% for event in events.items %}
-                    <li><b>{{ event.name }}:</b> {{ event.date | datetimeformat }} in {{ event.location }} | <a
-                            href="{{ event.link }}">Link zum Event</a></li>
+        <section id="events">
+            <h1>EVENTS</h1>
+            <div id="events-grid">
+                {% for event in events %}
+                    <div class="event">
+                        <span class="event-name">{{ event.name }}</span> 
+                        <b class="event-date">{{ event.date | datetimeformat }}</b>
+                        <span class="event-location">{{ event.location }}</span>
+                        <a class="event-link" href="{{ event.link }}">Link zum Event</a>
+                    </div>
                 {% endfor %}
-            </ul>
-            <div class=pagination>
-                <span>Pages: </span>
-                {%- for page in events.iter_pages() %}
-                    {% if page %}
-                        {% if page != events.page %}
-                            <a href="{{ url_for('main.events', page=page) }}">{{ page }}</a>
-                        {% else %}
-                            <strong>{{ page }}</strong>
-                        {% endif %}
-                    {% else %}
-                        <span class=ellipsis>…</span>
-                    {% endif %}
-                {%- endfor %}
             </div>
         </section>
-    </main>
-{% endblock %}

@@ -1,13 +1,7 @@
-{% extends "main/layout.html" %}
-{% block main %}
-    <main role="main">
 
-
-        <header>
-            <h1>Über</h1>
-        </header>
-
-        <section class="about">
+        <section id="about">
+            <h1>ÜBER</h1>
+            <div id="about-grid">
             <div class="about-header">
                 {% for app_text in app_texts %}{% if "band_name" in app_text.keyword %}
                     <h2>{{ app_text.text | safe }}</h2>{% endif %}{% endfor %}
@@ -30,6 +24,5 @@
                 {% for app_text in app_texts %}{% if "band_members" in app_text.keyword %}{{ app_text.text | safe }}
                 {% endif %}{% endfor %}
             </div>
+        </div>
         </section>
-    </main>
-{% endblock %}

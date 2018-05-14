@@ -20,13 +20,19 @@ $(document).ready(function () {
     $("#close-nav").hide();
 
     $("#open-nav").click(function () {
-        $(".mobile-nav").show();
+        $(".main-nav").css('display', 'flex');
         $("#open-nav").hide();
         $("#close-nav").show();
     });
 
     $("#close-nav").click(function () {
-        $(".mobile-nav").hide();
+        $(".main-nav").hide();
+        $("#open-nav").show();
+        $("#close-nav").hide();
+    });
+
+    $(".nav-link").click(function () {
+        $(".main-nav").hide();
         $("#open-nav").show();
         $("#close-nav").hide();
     });

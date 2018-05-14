@@ -7,12 +7,12 @@ import flask.globals as flask_global
 from jinja2 import Environment
 
 app = Flask(__name__)
-app.config.from_object('config.ProductionConfig')
+app.config.from_object('config.DevelopmentConfig')
 db = SQLAlchemy(app)
 
 
 @app.template_filter('datetimeformat')
-def datetimeformat(value, format='%d-%m-%Y@%H:%M:%S'):
+def datetimeformat(value, format='%d.%m.%Y @ %H:%M'):
     return value.strftime(format)
 
 

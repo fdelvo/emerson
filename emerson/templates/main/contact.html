@@ -1,25 +1,16 @@
-{% extends "main/layout.html" %}
-{% block main %}
-    <main role="main">
-        <header>
-            <h1>Kontakt</h1>
-        </header>
-        <section>
-            <div class="article-content">
+
+        <section id="contact">
+            <h1>KONTAKT</h1>
+            <div id="article-content">
                 <p><b>Ansprechpartner:</b> Tobias Lammer<br>
                 <b>Telefon:</b> 0157 344 560 71<br>
                     <b>Mail:</b> emersonprimemusic@gmail.com</p>
                 </address>
                 <form action="mailto:emersonprimemusic@gmail.com" method="post" enctype="text/plain">
-                    <label>Absender:</label>
-                    <input type="text" name="Absender">
-                    <label>Nachricht:</label>
-                    <textarea name="Nachricht"></textarea>
+                    <input type="text" placeholder="Absender" name="Absender">
+                    <textarea placeholder="Nachricht" name="Nachricht"></textarea>
                     <input type="submit" value="Abschicken">
-                    <input type="reset" value="Reset">
                 </form>
                 <p>Diese Seite wurde individuell nach den Wünschen von Emerson Prime von <a href="mailto:florian.delvo@googlemail.com">Florian Delvo</a> (florian.delvo@googlemail.com) gestaltet.</p>
             </div>
         </section>
-    </main>
-{% endblock %}

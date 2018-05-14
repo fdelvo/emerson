@@ -38,6 +38,19 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h1{
+    font-size: 34px;
+}
+
+#name {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 999;
+    color: #fff;
+    background-color: #000;
+}
+
 header {
     padding: 2rem 2rem 2rem 2rem;
     color: #212121 !important;
@@ -45,15 +58,9 @@ header {
 
 main {
     background-color: #FFFFFF;
-    border-left: 0.3rem solid #ca519e;
-    border-right: 0.05rem solid #ca519e;
-    border-bottom: 0.05rem solid #ca519e;
-    width: 65%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-areas: "header" "content";
 }
 
 main header {
@@ -61,10 +68,72 @@ main header {
 }
 
 main section {
-    grid-area: content;
-    padding: 1rem;
-    display: grid;
+    padding: 1rem 20% 1rem 20%;
     box-sizing: border-box;
+}
+
+#index {
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 0;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+section h1 {
+    text-align: center;
+    font-size: 34px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#media-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+}
+
+#media iframe {
+    justify-self: center;
+}
+
+#events {
+    background-color: #ca519e;
+    color: #fff;
+}
+
+#news {
+    background-color: #000;
+    color: #fff; 
+}
+
+#news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+#about {
+    background-color: #ca519e;
+    color: #fff;
+}
+
+#about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "about-header about-header" "about-description about-album-back-cover" "about-band-picture about-band-members";
+}
+
+#photos {
+    
+}
+
+#contact {
+    background-color: #000;
+    color: #fff; 
 }
 
 img {
@@ -82,8 +151,16 @@ form {
 
 form input, textarea {
     display: block;
-    padding: 1rem;
+    font-size: 24px;
     margin: 1rem;
+    background-color: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    padding-bottom: 1rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 form label {
@@ -93,10 +170,11 @@ form label {
 form input[type=submit] {
     outline: none;
     border: none;
-    background-color: #E2687F;
-    color: #f5f8fa;
+    background-color: #ca519e;
+    color: #fff;
     cursor: pointer;
     box-sizing: border-box;
+    padding: 1rem;
 }
 
 form input[type=submit]:hover {
@@ -126,72 +204,60 @@ form input[type=submit]:hover {
 
 /* Navigation */
 
-.mobile-nav {
-    display: none;
+#open-nav {
+    position:fixed;
+    top:1rem;
+    right: 1rem;
+    z-index: 9999;
+    color: #fff;
+    background-color: #000;
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
-.mobile-nav-button {
-    display: none;
+#close-nav {
+    position:fixed;
+    top:1rem;
+    right: 1rem;
+    z-index: 9999;
+    color: #fff;
+    background-color: #000;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+
+#social-media-bar a {
+    margin-top: 1rem;
+    display: inline-block !important;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .main-nav {
-    border-bottom: 0.05rem solid #ca519e;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    display: grid;
-    width: 100vw;
-    grid-template-columns: auto;
-    max-width: 100%;
-    grid-template-areas: "a1 a2 a3 a4 a5 a6 a7";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    z-index: 999;
+    background-color: #000;
+    display: none;
+    align-items: center; 
+    justify-content: center;
 }
 
-.main-nav a {
-    display: inline-block;
+#link-list a {
     box-sizing: border-box;
-    color: #7598b8;
-    text-decoration: none;
-    align-self: center;
-}
-
-.main-nav a:hover {
     color: #ca519e;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    font-size: 34px;
 }
 
-.main-nav #a1 {
-    grid-area: a1
-}
-
-.main-nav #a2 {
-    grid-area: a2
-}
-
-.main-nav #a3 {
-    grid-area: a3
-}
-
-.main-nav #a4 {
-    grid-area: a4
-}
-
-.main-nav #a5 {
-    grid-area: a5
-}
-
-.main-nav #a6 {
-    grid-area: a6
-}
-
-.main-nav #a7 {
-    grid-area: a7;
-}
-
-.main-nav #a8 {
-    grid-area: social-media;
-}
-
-.main-nav #dark-theme-on, .main-nav #dark-theme-off {
-    grid-area: dark-theme;
+#link-list a:hover {
+    color: #fff;
 }
 
 /* Index */
@@ -202,12 +268,8 @@ form input[type=submit]:hover {
 }
 
 .index-picture {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 40%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 #revert {
@@ -223,11 +285,6 @@ form input[type=submit]:hover {
 
 /* About */
 
-.about {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "about-header about-header" "about-description about-album-back-cover" "about-band-picture about-band-members";
-}
 
 .about-header {
     grid-area: about-header;
@@ -264,6 +321,8 @@ form input[type=submit]:hover {
 }
 
 .news-article {
+    background-color: #ca519e;
+    padding: 1rem;
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-areas: "news-article-header" "news-article-content";
@@ -277,6 +336,7 @@ form input[type=submit]:hover {
     width: 100%;
     line-height: 1.5;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 .news-article-content a {
@@ -300,25 +360,31 @@ form input[type=submit]:hover {
 /* Events */
 
 .event {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "title info";
-    border-bottom: 0.05rem solid #ca519e;
-}
-
-.event header {
-    grid-area: title;
-    padding: 0;
-    justify-self: center;
-    align-self: center;
-}
-
-.event-info {
-    grid-area: info;
-}
-
-.events ul li {
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "date none none"
+                        "location name link";
+    border-bottom: 0.05rem solid #BEBEBE;
+}
+
+.event-date {
+    grid-area: date;
+}
+
+.event-location {
+    grid-area: location;
+}
+
+.event-name {
+    grid-area: name;
+}
+
+.event-link {
+    grid-area: link;
+    color: #fff !important;
 }
 
 /* Music */

@@ -13,8 +13,12 @@ page_size_events = 20
 @mod_main_app.route('')
 @mod_main_app.route('index')
 def index():
-    app_texts = AppText.query.filter_by(site="contact").all()
-    return render_template('main/index.html', app_texts=app_texts)
+    app_texts = AppText.query.all()
+    events = Event.query.order_by(desc(Event.date))
+    news = NewsArticle.query.order_by(desc(NewsArticle.date))
+    videos = Video.query.all()
+    spotifys = Spotify.query.all()
+    return render_template('main/layout.html', app_texts=app_texts, events=events, news=news, videos=videos, spotifys=spotifys)
 
 
 @mod_main_app.route('about')

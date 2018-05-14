@@ -20,51 +20,39 @@
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
     <script src="/static/js/jquery_app.js"></script>
-    <script src="https://use.fontawesome.com/bfdfbcedeb.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 </head>
 <body>
 
 <nav class="main-nav" role="navigation">
-    <a id="a1" href="/">Home</a>
-    <a id="a2" href="/about">Über</a>
-    <!--<a id="a3" href="/news">News</a>-->
-    <a id="a3" href="/media">Media</a>
-    <a id="a4" href="/events">Events</a>
-    <a id="a5" href="/photos">Fotos</a>
-    <a id="a6" href="/contact">Kontakt</a>
-    <span id="a7">
-        <a id="a7" target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-facebook-official" aria-hidden="true"></i></a>
-        <a id="a8" target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a id="a9" target="_blank" href="{% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-youtube" aria-hidden="true"></i></a>
-        <a id="a10" href="{% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-envelope-o" aria-hidden="true"></i></a>
-    </span>
-</nav>
-<div class="mobile-nav-button">
-    <span id="open-nav">Menu</span>
+<div id="link-list">
+    <a class="nav-link" href="#index">Home</a>
+    <a class="nav-link" href="#media">Media</a>
+    <a class="nav-link" href="#events">Events</a>
+    <a class="nav-link" href="#news">News</a>
+    <a class="nav-link" href="#about">Über</a>
+    <a class="nav-link" href="#photos">Fotos</a>
+    <a class="nav-link" href="#contact">Kontakt</a>
+    <span id="social-media-bar">
+                <a target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i class="fab fa-facebook-square"></i></a>
+                <a target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="{% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i class="fab fa-youtube"></i></a>
+        </span>
 </div>
-<nav class="mobile-nav" role="navigation">
-    <a id="ma1" href="/">Home</a>
-    <a id="ma2" href="/about">Über</a>
-    <!--<a id="ma3" href="/news">News</a>-->
-    <a id="ma3" href="/media">Media</a>
-    <a id="ma4" href="/events">Events</a>
-    <a id="ma5" href="/photos">Fotos</a>
-    <a id="ma6" href="/contact">Kontakt</a>
-        <a target="_blank" href="{% for app_text in app_texts %}{% if "facebook_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-facebook-official" aria-hidden="true"></i></a>
-        <a target="_blank" href="{% for app_text in app_texts %}{% if "instagram_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a target="_blank" href="{% for app_text in app_texts %}{% if "youtube_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-youtube" aria-hidden="true"></i></a>
-        <a href="{% for app_text in app_texts %}{% if "email_link" in app_text.keyword %}{{ app_text.text | safe }}{% endif %}{% endfor %}"><i
-                class="fa fa-envelope-o" aria-hidden="true"></i></a>
+<i id="close-nav" class="fas fa-times fa-2x"></i>
 </nav>
-{% block main %} {% endblock %}
+<i class="fa fa-bars fa-2x" id="open-nav"></i>
+<h1 id="name">Emerson Prime</h1>
+<main>
+{% include 'main/index.html' %}
+{% include 'main/media.html' %}
+{% include 'main/events.html' %}
+{% include 'main/news.html' %}
+{% include 'main/about.html' %}
+{% include 'main/photos.html' %}
+{% include 'main/contact.html' %}
+</main>
 <a id="branding" href="/contact">Design by fde</a>
 </body>
 </html>

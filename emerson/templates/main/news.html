@@ -1,36 +1,17 @@
-{% extends "main/layout.html" %}
-{% block main %}
-    <main role="main">
-        <header>
-            <h1>News</h1>
-        </header>
-        <section class="news">
-            {% for news_article in news.items %}
+
+        <section id="news">
+            <h1>NEWS</h1>
+            <div id="news-grid">
+            {% for news_article in news %}
                 <div class="news-article">
                     <div class="news-article-header">
                         <h2>{{ news_article.title }}</h2>
                         <span>{{ news_article.date | datetimeformat }}</span>
                     </div>
                     <div class="news-article-content">
-                        {{ news_article.content[:500] + '[...] ' }}<a
-                            href="/news_article/{{ news_article.id }}">read</a>
+                        {{ news_article.content }}
                     </div>
                 </div>
             {% endfor %}
-                <div class=pagination>
-                <span>Pages: </span>
-                    {%- for page in news.iter_pages() %}
-                        {% if page %}
-                            {% if page != news.page %}
-                                <a href="{{ url_for('main.news', page=page) }}">{{ page }}</a>
-                            {% else %}
-                                <strong>{{ page }}</strong>
-                            {% endif %}
-                        {% else %}
-                            <span class=ellipsis>…</span>
-                        {% endif %}
-                    {%- endfor %}
-                </div>
+        </div>
         </section>
-    </main>
-{% endblock %}

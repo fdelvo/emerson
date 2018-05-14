@@ -68,7 +68,7 @@ main header {
 }
 
 main section {
-    padding: 1rem 20% 1rem 20%;
+    padding: 1rem 10% 1rem 10%;
     box-sizing: border-box;
 }
 
@@ -348,15 +348,6 @@ form input[type=submit]:hover {
     padding: 0 1rem 1rem 1rem;
 }
 
-.news-article-thumbnail {
-    grid-area: news-article-thumbnail;
-}
-
-.news-thumbnail {
-    height: 250px;
-    width: auto;
-}
-
 /* Events */
 
 .event {
@@ -507,6 +498,10 @@ form input[type=submit]:hover {
         min-height: 100vh;
     }
 
+    #name {
+        display: none;
+    }
+
     main {
         border-left: none;
         border-right: none;
@@ -519,60 +514,69 @@ form input[type=submit]:hover {
         font-size: 16px;
     }
 
-    /* Mobile Nav */
-    .main-nav {
-        display: none;
+    #media-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 1rem;
     }
+    /* News */
 
-    .mobile-nav-button {
-        display: block;
-        grid-area: nav;
-        text-align: right;
-        border-bottom: 0.05rem solid #ca519e;
-        padding: 1rem;
-        color: #7598b8;
-    }
+.news {
+    padding: 0 2rem 2rem 2rem;
+}
 
-    .mobile-nav {
-        position: fixed;
-        z-index: 999;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: #FBF9FA;
-        width: 100%;
-        text-align: left;
-    }
+.news-article {
+    background-color: #ca519e;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "news-article-header" "news-article-content";
+}
 
-    .mobile-nav a {
-        display: block;
-        padding: 1rem 0 1rem 1rem;
-        border-bottom: 0.05rem solid #ca519e
+.news-article-content {
+    grid-area: news-article-content;
+    padding: 1rem;
+    overflow: hidden;
+    align-self: center;
+    width: 100%;
+    line-height: 1.5;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.news-article-content a {
+    display: inline;
+}
+
+.news-article-header {
+    grid-area: news-article-header;
+    padding: 0 1rem 1rem 1rem;
+}
+    #news-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
     }
 
     /* Mobile Events */
     .event {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
         display: grid;
-        grid-template-rows: auto 2fr;
-        grid-template-columns: auto;
-        grid-template-areas: "title" "info";
-    }
-
-    .event header {
-        grid-area: title;
-        padding: 0;
-        justify-self: start;
-    }
-
-    .event-info {
-        grid-area: info;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+        grid-template-areas: "date""location""name""link";
+        border-bottom: 0.05rem solid #BEBEBE;
     }
 
     /* Mobile About */
-    .about {
+    #about-grid {
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto;
-        grid-template-areas: "about-header" "about-banner" "about-description" "about-band-picture" "about-band-members";
+        grid-template-areas: "about-header" "about-description" "about-band-picture" "about-band-members";
     }
 
     .about-header {
@@ -596,11 +600,6 @@ form input[type=submit]:hover {
 
     .about-band-album-back-cover {
         display: none;
-    }
-
-    .about-band-mobile-banner {
-        display: unset;
-        grid-area: about-banner;
     }
 
     /* Mobile Music */

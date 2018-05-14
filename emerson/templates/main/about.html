@@ -6,9 +6,6 @@
                 {% for app_text in app_texts %}{% if "band_name" in app_text.keyword %}
                     <h2>{{ app_text.text | safe }}</h2>{% endif %}{% endfor %}
             </div>
-            <div class="about-band-mobile-banner">
-                <img src="../static/images/JESSE-WIEBE-EP20170622-029_SW_WEB.png"/>
-            </div>
             <div class="about-band-description">
                 {% for app_text in app_texts %}{% if "band_description" in app_text.keyword %}
                     <article>{{ app_text.text | safe }}</article>{% endif %}{% endfor %}

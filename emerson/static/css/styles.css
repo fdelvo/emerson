@@ -47,8 +47,14 @@ h1{
     top: 1rem;
     left: 1rem;
     z-index: 999;
-    color: #fff;
+
     background-color: #000;
+
+}
+
+#name a {
+    text-decoration: none !important;
+    color: #fff !important;
 }
 
 header {
@@ -74,7 +80,7 @@ main section {
 
 #index {
     height: 100vh;
-    background-color: #000;
+    background: linear-gradient( to bottom, #faa5b4, #F6A3B8);
     color: #fff;
     padding: 0;
     display: flex; 
@@ -268,8 +274,8 @@ form input[type=submit]:hover {
 }
 
 .index-picture {
-    max-width: 100vw;
-    max-height: 100vh;
+    height: 100%;
+    width: auto;
 }
 
 #revert {
@@ -631,7 +637,8 @@ form input[type=submit]:hover {
 
 @media (orientation: portrait) {
     .index-picture {
-        width: 90%;
+        width: 100%;
+        height: auto;
     }
 }
 

@@ -53,7 +53,15 @@ $(document).ready(function () {
         $(this).attr("src", "../static/images/" + imageUrl);
     });
 
-    if (location.pathname==='/') {
+    if (location.pathname === '/') {
         $('#branding').css({position: 'fixed', bottom: '0.5rem', right: '0.5rem'});
     }
+
+    $("a[href*=\"#\"]").click(function (e) {
+        e.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 400, 'linear');
+    });
 });
